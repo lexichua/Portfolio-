@@ -2318,26 +2318,17 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
 }
 
 .about-photo-wrapper {
-  width: 428px;
-  height: 411px;
+  width: 385px;
   max-width: 100%;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   background: #fdfdfd;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-
-.about-photo-wrapper:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
 }
 
 .about-photo {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center bottom;
+  height: auto;
   display: block;
   border-radius: 20px;
 }
@@ -2356,9 +2347,8 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   }
   .about-photo-wrapper {
     width: 100%;
-    max-width: 428px;
+    max-width: 385px;
     height: auto;
-    aspect-ratio: 428 / 411;
   }
 }
 
