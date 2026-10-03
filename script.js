@@ -331,11 +331,19 @@ document.addEventListener('DOMContentLoaded', () => {
       playSections.forEach(sec => {
         if (sec.id === `${targetId}-section`) {
           sec.classList.add('play-section-active');
+          const chunks = sec.querySelectorAll('.reveal-chunk');
+          chunks.forEach(chunk => chunk.classList.add('is-revealed'));
         } else {
           sec.classList.remove('play-section-active');
         }
       });
     };
+
+    // Reveal initial active section chunks immediately
+    const initialActiveSec = document.querySelector('.play-section.play-section-active');
+    if (initialActiveSec) {
+      initialActiveSec.querySelectorAll('.reveal-chunk').forEach(chunk => chunk.classList.add('is-revealed'));
+    }
 
     playTags.forEach(tag => {
       tag.addEventListener('click', (e) => {

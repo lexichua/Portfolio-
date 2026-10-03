@@ -268,10 +268,12 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   user-select: none;
 }
 
-/* Hover on words creates a faint grey capsule shape filling the area */
-.nav-pill:hover {
+/* Hover and active on words creates a faint grey capsule shape filling the area */
+.nav-pill:hover,
+.nav-pill.active {
   background-color: #f5f5f7;
   color: #111111;
+  font-weight: 500;
 }
 
 .nav-logo-box {
@@ -1715,6 +1717,12 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   overflow: hidden;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
   background: #fdfdfd;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
 }
 
 .media-card img {
@@ -1744,6 +1752,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  aspect-ratio: 3 / 4;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.poster-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 .poster-card img {
@@ -1759,6 +1774,14 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.badge-item {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.badge-item:hover {
+  transform: scale(1.04) rotate(-0.5deg);
 }
 
 .badge-item img {
@@ -1879,6 +1902,7 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .music-track-cover {
@@ -1887,6 +1911,12 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.music-track-card:hover .music-track-cover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
 .music-track-cover img {
