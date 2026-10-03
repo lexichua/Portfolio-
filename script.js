@@ -18,9 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   revealElements.forEach(el => {
-    // If element is already in initial view on page load (e.g. hero), reveal promptly
+    // Reveal all elements in or near initial viewport promptly
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.7) {
+    if (rect.top < window.innerHeight * 1.1) {
       el.classList.add('is-revealed');
     } else {
       revealObserver.observe(el);
@@ -312,6 +312,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', alignHomeBio);
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(alignHomeBio);
+  }
+
   // 8. Play Page Category Tag Switcher
   const playTags = document.querySelectorAll('.play-tag');
   const playSections = document.querySelectorAll('.play-section');
