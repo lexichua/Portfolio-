@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexi Chua — Product Designer & Builder</title>
+  <meta name="description" content="Lexi Chua is an interdisciplinary designer, builder, and connector, making ideas easier to see and use. Studying Cognitive Science @ UCLA.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css?v=10">
+  <style>
+    ::selection,
+    *::selection {
+      background-color: #EDE4FF !important;
+      color: #7742E1 !important;
+    }
+    ::-moz-selection,
+    *::-moz-selection {
+      background-color: #EDE4FF !important;
+      color: #7742E1 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Morphing Cursor Element -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <div class="custom-cursor-shape"></div>
+  </div>
+
+  <!-- Subtle Top & Bottom Viewport Edge Fades -->
+  <div class="viewport-fade-top" aria-hidden="true"></div>
+  <div class="viewport-fade-bottom" aria-hidden="true"></div>
+
+  <!-- Top Floating Navigation Bar (Universal Across Site) -->
+  <div class="top-header-wrapper" id="top-nav-wrapper">
+    <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
+      <div class="nav-wing nav-wing-left">
+        <a href="#featured-work" class="nav-pill">Work</a>
+        <a href="#play" class="nav-pill">Play</a>
+      </div>
+
+      <a href="#" class="nav-logo-box" id="nav-logo-box" aria-label="Return to top of page">
+        <img src="assets/logo_union.svg" id="nav-logo-img" alt="Lexi Chua Logo" width="40" height="40">
+      </a>
+
+      <div class="nav-wing nav-wing-right">
+        <a href="#about" class="nav-pill">About</a>
+        <a href="https://drive.google.com/file/d/1Vvf6IKBH4ZEHBFksC2GzY-p0pDCKIhQ1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill">Resume</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Homepage Content -->
+  <main class="home-container">
+    
+    <!-- Hero Statement & Bio -->
+    <header class="home-hero reveal-chunk">
+      <h1 class="home-statement">
+        <span class="name-gradient">Lexi Chua</span> is an interdisciplinary designer, builder, and connector, making ideas easier to see and use
+      </h1>
+      <div class="home-bio">
+        <p>Currently designing for UCLA student media devops</p>
+        <p>Studying Cognitive Science @ UCLA</p>
+      </div>
+    </header>
+
+    <!-- Featured Work Section -->
+    <section class="featured-work-section" id="featured-work">
+      <div class="featured-work-header reveal-chunk">
+        <span class="featured-work-title">FEATURED WORK</span>
+        <img src="assets/featured_work_arrow.svg" alt="" class="featured-arrow" aria-hidden="true">
+      </div>
+
+      <!-- 2x2 Project Cards Grid -->
+      <div class="project-cards-grid">
+        
+        <!-- Card 1: Bike Pantry (With thumbnail video motion & link to case study) -->
+        <a href="bike-pantry.html" class="home-project-card reveal-chunk" aria-label="View Bike Pantry case study">
+          <div class="card-thumbnail">
+            <video autoplay loop muted playsinline>
+              <source src="assets/BikePantryThumbnail.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="card-info">
+            <h2 class="card-title">Bike Pantry (Hack2Impact 2026 Winner)</h2>
+            <p class="card-desc">Helping to keep LA roads and bikers safe.</p>
+          </div>
+        </a>
+
+        <!-- Card 2: ZOOX (Linked to zoox.html with thumbnail animation) -->
+        <a href="zoox.html" class="home-project-card reveal-chunk" aria-label="View ZOOX project">
+          <div class="card-thumbnail">
+            <video autoplay loop muted playsinline>
+              <source src="assets/ZooxPreviewAnimation.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="card-info">
+            <h2 class="card-title">ZOOX</h2>
+            <p class="card-desc">The future of transportation.</p>
+          </div>
+        </a>
+
+        <!-- Card 3: DevX Website (Linked to devx.html) -->
+        <a href="devx.html" class="home-project-card reveal-chunk" aria-label="View DevX Website project">
+          <div class="card-thumbnail">
+            <img src="assets/devx_hero.png" alt="DevX Website">
+          </div>
+          <div class="card-info">
+            <h2 class="card-title">DevX Website</h2>
+            <p class="card-desc">Helping to keep LA roads and bikers safe.</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>

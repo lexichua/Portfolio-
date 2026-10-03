@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bike Pantry — Lexi Chua Case Study</title>
+  <meta name="description" content="A community and safety oriented bicycle app built for The Bike Kitchen nonprofit. 1st place @ Hack2Impact 2026.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css?v=9">
+  <style>
+    ::selection,
+    *::selection {
+      background-color: #EDE4FF !important;
+      color: #7742E1 !important;
+    }
+    ::-moz-selection,
+    *::-moz-selection {
+      background-color: #EDE4FF !important;
+      color: #7742E1 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Morphing Cursor Element -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <div class="custom-cursor-shape"></div>
+  </div>
+
+  <!-- Subtle Top & Bottom Viewport Edge Fades -->
+  <div class="viewport-fade-top" aria-hidden="true"></div>
+  <div class="viewport-fade-bottom" aria-hidden="true"></div>
+
+  <!-- Bicycle Kitchen Confetti Canvas -->
+  <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Floating Navigation Bar (Interactive, Collapsible, White) -->
+  <div class="top-header-wrapper" id="top-nav-wrapper">
+    <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
+      <div class="nav-wing nav-wing-left">
+        <a href="index.html" class="nav-pill">Work</a>
+        <a href="#play" class="nav-pill">Play</a>
+      </div>
+
+      <a href="index.html" class="nav-logo-box" id="nav-logo-box" aria-label="Return to home page">
+        <img src="assets/logo_union.svg" id="nav-logo-img" alt="Lexi Chua Logo" width="40" height="40">
+      </a>
+
+      <div class="nav-wing nav-wing-right">
+        <a href="#about" class="nav-pill">About</a>
+        <a href="https://drive.google.com/file/d/1Vvf6IKBH4ZEHBFksC2GzY-p0pDCKIhQ1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill">Resume</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="page-container">
+    
+    <!-- Left Sticky Sidebar Table of Contents -->
+    <aside class="side-nav-wrapper" aria-label="Case Study Table of Contents">
+      <nav class="side-toc">
+        <a href="index.html" class="back-link">
+          <span aria-hidden="true">&larr;</span> Back to Projects
+        </a>
+        <a href="#hero" class="toc-project-title toc-link active">Bike Pantry</a>
+        <a href="#problem" class="toc-link">The Problem</a>
+        <a href="#research" class="toc-link">Research</a>
+        <a href="#solution" class="toc-link">Solution</a>
+        <a href="#process" class="toc-link">Process</a>
+        <a href="#final-design" class="toc-link">Final Design</a>
+        <a href="#conclusion" class="toc-link">Conclusion</a>
+      </nav>
+    </aside>
+
+    <!-- Main Case Study Content -->
+    <main class="main-article">
+      
+      <!-- HERO SECTION -->
+      <header class="section hero-header" id="hero">
+        <div class="reveal-chunk">
+          <h1 class="hero-title">Bike Pantry</h1>
+          <p class="hero-subtitle">
+            A community and safety oriented bicycle app built for The Bike Kitchen nonprofit. 1st place @ Hack2Impact 2026
+          </p>
+        </div>
+        
+        <div class="hero-video-box reveal-chunk">
+          <video autoplay loop muted playsinline>
+            <source src="assets/BikePantryThumbnail.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Project Metadata Grid -->
+        <div class="project-meta-grid reveal-chunk">
+          <div class="meta-column">
+            <h2 class="meta-column-header">Role</h2>
+            <div class="meta-column-content">
+              <p>Product Designer</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Skills</h2>
+            <div class="meta-column-content">
+              <p>Visual Design</p>
+              <p>UX Research</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Team</h2>
+            <div class="meta-column-content">
+              <p>2 Designers</p>
+              <p>2 Developers</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Timeline</h2>
+            <div class="meta-column-content">
+              <p>2 Days</p>
+              <p>May 2026</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- OVERVIEW SECTION -->
+      <section class="section" id="overview">
+        <div class="reveal-chunk">
+          <h2 class="section-title">Overview</h2>
+          <div class="section-body">
+            <p>
+              In the annual <span class="bold-highlight">Hack2Impact Hackathon</span> hosted by LA Blueprint, a UCLA club, my team of 4 built a full stack application for <span class="bold-highlight">Bicycle Kitchen</span>, an LA Non-Profit that aims to promote bike safety and education. Our team <span class="bold-highlight">placed 1st</span> in the competition with our app, <span class="bold-highlight">Bike Pantry</span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTEXT SECTION -->
+      <section class="section" id="context">
+        <div class="reveal-chunk">
+          <span class="section-tag">CONTEXT</span>
+          <h2 class="section-title">What is The Bicycle Kitchen?</h2>
+          <div class="section-body">
+            <p>
+              The Bicycle Kitchen is a volunteer-run nonprofit in Los Angeles that teaches people to repair their own bikes rather than fixing bikes for them.
+            </p>
+            <p>
+              <span class="bold-highlight">Its mission:</span> promote biking as fun, safe, accessible transportation, and foster healthy communities through a welcoming space to learn.
+            </p>
+          </div>
+        </div>
+
+        <div class="context-split reveal-chunk">
+          <div class="context-photo-box">
+            <img src="assets/bike_kitchen_mechanics.png" alt="Mechanics repairing bikes at Bicycle Kitchen" loading="lazy">
+          </div>
+          <div class="context-cards-list">
+            <p class="context-subhead">In Summary, Bicycle Kitchen is...</p>
+            <div class="context-chip-card">
+              <img src="assets/icon_beginner.svg" alt="" aria-hidden="true">
+              <span>Beginner Friendly</span>
+            </div>
+            <div class="context-chip-card">
+              <img src="assets/icon_education.svg" alt="" aria-hidden="true">
+              <span>Education-Focused</span>
+            </div>
+            <div class="context-chip-card">
+              <img src="assets/icon_community.svg" alt="" aria-hidden="true">
+              <span>Community Oriented</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout-box reveal-chunk">
+          <h3>The Bicycle Kitchen needed a safety tool.</h3>
+          <p>
+            The Bicycle Kitchen came to us with a clear need: a tool to help cyclists navigate traffic, find safe routes, and build the confidence to actually ride in the city.
+          </p>
+        </div>
+      </section>
+
+      <!-- PROBLEM SECTION -->
+      <section class="section" id="problem">
+        <div class="reveal-chunk">
+          <span class="section-tag">PROBLEM</span>
+          <h2 class="section-title large">Los Angeles is built around the car</h2>
+          <div class="section-body">
+            <p>
+              Since none of us were regular bikers, I researched bike transportation and safety in Los Angeles. I dug through forums and articles and found an overarching theme: new cyclists feel <span class="bold-highlight">uncertain</span> and <span class="bold-highlight">intimidated</span> riding because <span class="bold-highlight">LA roads are not built with cyclists in mind.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="image-caption-container reveal-chunk">
+          <div class="full-width-media-box">
+            <video autoplay loop muted playsinline poster="assets/la_traffic.png">
+              <source src="assets/drone-video-pan-up-of-heavy-los-angeles-traffic.mp4" type="video/mp4">
+              <img src="assets/la_traffic.png" alt="Overhead aerial view of heavy traffic on Los Angeles highway">
+            </video>
+          </div>
+          <p class="media-caption">La traffic. There usually aren't musical numbers on the 405 unfortunately :(</p>
+        </div>
+      </section>
+
+      <!-- RESEARCH SECTION -->
+      <section class="section" id="research">
+        <div class="reveal-chunk">
+          <span class="section-tag">RESEARCH</span>
+          <h2 class="section-title large">Some Statistics I found...</h2>
+          
+          <div class="stats-cards-row">
+            <div class="stat-card">
+              <div class="stat-card-number">87%</div>
+              <div class="stat-card-label">of LA trips are made by car</div>
+              <div class="stat-card-comparison">
+                <p>SF: 62%</p>
+                <p>NY: 35%</p>
+              </div>
+              <div class="stat-card-source">(Bureau of Transportation Statistics)</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-card-number">&lt;1%</div>
+              <div class="stat-card-label">of LA roads have bike lanes</div>
+              <div class="stat-card-comparison">
+                <p>SF: 24%</p>
+                <p>NY: 30%</p>
+              </div>
+              <div class="stat-card-source">(LA 25x25)</div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-card-number">#1</div>
+              <div class="stat-card-label"><span class="bold-highlight">least</span> bike-friendly city in America is LA</div>
+              <div class="stat-card-comparison"></div>
+              <div class="stat-card-source">(towerelectricbikes)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Client Interview Thought -->
+        <div class="interview-split reveal-chunk">
+          <div class="interview-media-col">
+            <h2 class="section-title large">Learning what LA bikers need through a client interview</h2>
+            <p class="media-caption">Meeting with Bicycle Kitchen Representative</p>
+            <div class="interview-photo-container">
+              <img src="assets/zoom_interview.png" alt="Meeting over Zoom with Bicycle Kitchen representatives" class="interview-photo" loading="lazy">
+            </div>
+          </div>
+
+          <div class="interview-content-col">
+            <p>
+              Our group then decided to organize a <span class="bold-highlight">client interview</span> to further understand what LA bikers actually need from our product and help <span class="bold-highlight">define the scope</span> and <span class="bold-highlight">essential features</span> of our solution.
+            </p>
+            <p>Here's what they said:</p>
+            <ul>
+              <li>Some roads are wide and seem like they would be great for biking (ex. Venice Blvd) but have many <span class="bold-highlight">potholes</span>.</li>
+              <li>A lot of streets have <span class="bold-highlight">bike lanes</span> that <span class="bold-highlight">randomly disappear.</span></li>
+              <li>They want the tool to be approachable and easy to navigate for someone just getting started.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Vicious Cycle Diagram Thought -->
+        <div class="cycle-section reveal-chunk">
+          <p class="cycle-pretitle">From our research I discovered...</p>
+          <h2 class="section-title large">A vicious cycle for LA cyclists</h2>
+
+          <div class="cycle-diagram-container">
+            <!-- Node: Top -->
+            <div class="cycle-node top">
+              <span class="bold-highlight">87% </span>of trips in LA are made by car, Roads aren't designed with cyclist safety considerations in mind.
+            </div>
+
+            <!-- Node: Right -->
+            <div class="cycle-node right">
+              <span class="bold-highlight">Fear</span> of navigating unsafe conditions discourages people from biking.
+            </div>
+
+            <!-- Node: Bottom -->
+            <div class="cycle-node bottom">
+              Fear pushes people toward <span class="bold-highlight">driving cars.</span>
+            </div>
+
+            <!-- Node: Left -->
+            <div class="cycle-node left">
+              ...which in turn makes the roads even <span class="bold-highlight">less safe</span> for the cyclists who remain.
+            </div>
+
+            <!-- SVG Circular Loop with Arrows -->
+            <svg class="cycle-svg-canvas" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#40a09e" />
+                </marker>
+              </defs>
+              <path d="M 180 50 A 130 130 0 0 1 310 180" stroke="#40a09e" stroke-width="2.5" stroke-dasharray="6 6" fill="none" marker-end="url(#arrow)" />
+              <path d="M 310 180 A 130 130 0 0 1 180 310" stroke="#40a09e" stroke-width="2.5" stroke-dasharray="6 6" fill="none" marker-end="url(#arrow)" />
+              <path d="M 180 310 A 130 130 0 0 1 50 180" stroke="#40a09e" stroke-width="2.5" stroke-dasharray="6 6" fill="none" marker-end="url(#arrow)" />
+              <path d="M 50 180 A 130 130 0 0 1 180 50" stroke="#40a09e" stroke-width="2.5" stroke-dasharray="6 6" fill="none" marker-end="url(#arrow)" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Key Takeaway Box Thought -->
+        <div class="callout-box key-takeaway reveal-chunk">
+          <span class="callout-tag">KEY TAKEAWAY</span>
+          <p>
+            While most of LA isn't bicycle-friendly, <span class="bold-highlight">experienced cyclists</span>, like those at Bicycle Kitchen, have <span class="bold-highlight">found their way through it</span>. The challenge is that these safe routes are invisible to beginners.
+          </p>
+          <p class="highlight-goal">
+            Our goal: Connect beginners with the knowledge of experienced bikers, so they can navigate LA with confidence
+          </p>
+        </div>
+      </section>
+
+      <!-- SOLUTION SECTION -->
+      <section class="section" id="solution">
+        <div class="reveal-chunk">
+          <span class="section-tag">SOLUTION</span>
+          <div class="split-header-row">
+            <h2 class="section-title large">A Navigation App, Purpose-Built for Cyclists</h2>
+            <div class="section-body">
+              <p>
+                To help new bikers feel less afraid of riding in LA, we built Bike Pantry, an app that combines safer navigation, community, and education. It's organized into these three main features:
+              </p>
+            </div>
+          </div>
+
+          <!-- 3 Pillars -->
+          <div class="pillars-row">
+            <div class="pillar-card">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-box">
+                  <img src="assets/icon_nav.svg" alt="" aria-hidden="true">
+                </div>
+                <h3 class="pillar-title">Navigation</h3>
+              </div>
+              <p class="pillar-desc">
+                Current navigation tools usually optimize for speed rather than safety. <span class="pillar-muted">So, our team developed a safety first navigation algorithm</span>
+              </p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-box">
+                  <img src="assets/icon_comm2.svg" alt="" aria-hidden="true">
+                </div>
+                <h3 class="pillar-title">Community</h3>
+              </div>
+              <p class="pillar-desc">
+                Frequent bikers already know the best ways to get around LA. <span class="pillar-muted">So, we connect beginners with the experienced.</span>
+              </p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-card-header">
+                <div class="pillar-icon-box">
+                  <img src="assets/icon_edu2.svg" alt="" aria-hidden="true">
+                </div>
+                <h3 class="pillar-title">Education</h3>
+              </div>
+              <p class="pillar-desc">
+                Bicycle Kitchen’s mission is helping riders feel confident. <span class="pillar-muted">So, we included cycling safety lessons and connected users back to Bicycle Kitchen</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solution 3-phone Mockup Thought -->
+        <div class="solution-mockup-wrapper reveal-chunk">
+          <img src="assets/solution_three_screens.png" alt="Three phone mockups displaying Education, Community, and Safe Navigation views" class="solution-mockup-image" loading="lazy">
+          <div class="solution-labels-row">
+            <span>Education</span>
+            <span>Community</span>
+            <span>Safe Navigation</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS SECTION -->
+      <section class="section" id="process">
+        <!-- Thought A: Moodboard -->
+        <div class="reveal-chunk">
+          <span class="section-tag">PROCESS</span>
+          <div class="split-header-row">
+            <h2 class="section-title large">Visual design Exploration</h2>
+            <div class="section-body">
+              <p>
+                We began by creating a mood board of other popular apps with map interfaces. We took inspiration from familiar apps like Strava.
+              </p>
+            </div>
+          </div>
+
+          <div class="image-caption-container" style="margin-top: 24px;">
+            <img src="assets/moodboard.png" alt="Moodboard of mapping apps and visual styles including Strava and minimal transit interfaces" loading="lazy">
+            <p class="media-caption">Our Moodboard</p>
+          </div>
+        </div>
+
+        <!-- Thought B: Lo-Fi and Components -->
+        <div class="reveal-chunk" style="margin-top: 48px;">
+          <div class="split-header-row">
+            <h2 class="section-title large">Lo-Fi and custom components</h2>
+            <div class="section-body">
+              <p>
+                We then moved on to rapidly iterate on Low-Fidelity Designs, making sure to collect anything we could turn into a repeatable component.
+              </p>
+            </div>
+          </div>
+
+          <div class="two-column-images">
+            <div class="image-caption-container">
+              <img src="assets/lofi_designs.png" alt="Wireframes and low fidelity screen flows" loading="lazy">
+              <p class="media-caption">Low-Fidelity Designs</p>
+            </div>
+            <div class="image-caption-container">
+              <img src="assets/hifi_components.png" alt="High fidelity custom component library" loading="lazy">
+              <p class="media-caption">Components (High Fidelity)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thought C: Hi-Fi Exploration -->
+        <div class="reveal-chunk" style="margin-top: 48px;">
+          <div class="split-header-row">
+            <h2 class="section-title large">Hi-Fi exploration</h2>
+            <div class="section-body">
+              <p>
+                For the colors in our High-Fidelity Designs we were inspired by the official Bicycle Kitchen website and adapted them for improved mobile readability.
+              </p>
+            </div>
+          </div>
+
+          <div class="two-column-images">
+            <div class="image-caption-container">
+              <img src="assets/bicycle_kitchen_site.png" alt="Original Bicycle Kitchen website inspiration" loading="lazy">
+            </div>
+            <div class="image-caption-container">
+              <img src="assets/hifi_colors_ui.png" alt="Color palette swatches and mobile UI adaptations" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL DESIGN SECTION -->
+      <section class="section" id="final-design">
+        
+        <!-- Thought 1: Smart Map -->
+        <div class="showcase-item reveal-chunk">
+          <div class="split-header-row">
+            <div>
+              <span class="section-tag">FINAL DESIGN</span>
+              <h2 class="section-title large" style="margin-top: 12px;">Smart Map</h2>
+            </div>
+            <div class="section-body">
+              <p>
+                Select a destination and the map automatically calculates the quickest, safest, route to get there. Its algorithm takes in live publicly reported data from the LA transit system such as pothole locations and traffic so information is updated and accurate.
+              </p>
+            </div>
+          </div>
+          <div class="showcase-banner">
+            <img src="assets/screen_map_opt.webp" alt="Smart Map animated interactive demonstration" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Thought 2: Explore Routes -->
+        <div class="showcase-item reveal-chunk">
+          <div class="split-header-row">
+            <div>
+              <h2 class="section-title large">Find community through exploring routes</h2>
+            </div>
+            <div class="section-body">
+              <p>This page lets users...</p>
+              <ol class="showcase-ordered-list">
+                <li>Join active routes where users can plan to meet at a certain time and bike on a route together.</li>
+                <li>Discover safe routes around Los Angeles: Search through routes submitted by other users and choose tags that fit your biking needs</li>
+              </ol>
+            </div>
+          </div>
+          <div class="showcase-banner">
+            <img src="assets/screen_explore_opt.webp" alt="Explore routes animated demonstration" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Thought 3: Kitchen -->
+        <div class="showcase-item reveal-chunk">
+          <div class="split-header-row">
+            <div>
+              <h2 class="section-title large">Kitchen</h2>
+            </div>
+            <div class="section-body">
+              <p>
+                Connect back to Bicycle Kitchen with their mission, an event calendar, education, and safety lessons
+              </p>
+            </div>
+          </div>
+          <div class="showcase-banner">
+            <img src="assets/screen_kitchen_opt.webp" alt="Bicycle Kitchen screen demonstration" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Thought 4: Profile -->
+        <div class="showcase-item reveal-chunk">
+          <div class="split-header-row">
+            <div>
+              <h2 class="section-title large">Profile</h2>
+            </div>
+            <div class="section-body">
+              <p>
+                Users can post routes, see their photos from reviews, and configure their settings
+              </p>
+            </div>
+          </div>
+          <div class="showcase-banner">
+            <img src="assets/screen_profile_opt.webp" alt="User profile screen demonstration" loading="lazy">
+          </div>
+        </div>
+
+      </section>
+
+      <!-- CONCLUSION SECTION -->
+      <section class="section" id="conclusion">
+        <div class="reveal-chunk">
+          <span class="section-tag">CONCLUSION</span>
+          
+          <div class="conclusion-split">
+            <div class="conclusion-media-col">
+              <h2 class="section-title large" style="margin-bottom: 24px;">Results and Reflection</h2>
+              <div class="froyo-photo-box">
+                <img src="assets/froyo_conclusion.jpg" alt="Strawberry froyo at 2AM during hackathon" loading="lazy">
+              </div>
+              <p class="media-caption">2AM UCLA strawberry froyo - the only picture I have from the Hackathon :D</p>
+            </div>
+
+            <div class="conclusion-text">
+              <p>
+                After our final presentation, the Bicycle Kitchen representatives were very excited about our solution!
+              </p>
+              <p>
+                One judge pointed out how there may be <span class="bold-highlight">accessibility issues</span> for users with color blindness, or when under harsh light. This has stuck with me and continues to influence my design decisions.
+              </p>
+              <p>
+                One of my favorite parts of this project was learning about a community I never would have encountered otherwise which is one of the main things I love most about design. It gives you a reason to step into someone else's experience and actually understand it. Time to go for a bike ride!
+              </p>
+              <p>
+                Huge thanks to Gokul, Nancy, and Kay for being such an amazing team, as well as Hack2Impact for the fun event!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js?v=2"></script>
+</body>
+</html>

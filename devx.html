@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevX Website — Lexi Chua</title>
+  <meta name="description" content="Design and development for DevX website by Lexi Chua. First project owning both design and development using Figma MCP.">
+  
+  <!-- Google Fonts: Figtree, Outfit, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body class="devx-page">
+
+  <!-- Custom Morphing Cursor Element -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <div class="custom-cursor-shape"></div>
+  </div>
+
+  <!-- Subtle Top & Bottom Viewport Edge Fades -->
+  <div class="viewport-fade-top" aria-hidden="true"></div>
+  <div class="viewport-fade-bottom" aria-hidden="true"></div>
+
+  <!-- Top Floating Navigation Bar (Universal across site) -->
+  <div class="top-header-wrapper" id="top-nav-wrapper">
+    <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
+      <div class="nav-wing nav-wing-left">
+        <a href="index.html" class="nav-pill">Work</a>
+        <a href="index.html#play" class="nav-pill">Play</a>
+      </div>
+
+      <a href="index.html" class="nav-logo-box" id="nav-logo-box" aria-label="Return to home page">
+        <img src="assets/logo_union.svg" id="nav-logo-img" alt="Lexi Chua Logo" width="40" height="40">
+      </a>
+
+      <div class="nav-wing nav-wing-right">
+        <a href="index.html#about" class="nav-pill">About</a>
+        <a href="https://drive.google.com/file/d/1Vvf6IKBH4ZEHBFksC2GzY-p0pDCKIhQ1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill">Resume</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="page-container">
+    
+    <!-- Left Navigation: Back to Projects Link -->
+    <aside class="side-nav-wrapper" aria-label="Page Navigation">
+      <nav class="side-toc">
+        <a href="index.html" class="back-link">
+          <span aria-hidden="true">&larr;</span> Back to Projects
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="devx-article">
+      
+      <!-- HEADER & HERO SECTION -->
+      <header class="section devx-header" id="hero">
+        <div class="devx-header-row reveal-chunk">
+          <div class="devx-header-info">
+            <h1 class="hero-title devx-title">DevX Website</h1>
+            <p class="hero-subtitle devx-subtitle">
+              A community and safety oriented bicycle app built for The Bike Kitchen nonprofit. 1st place @ Hack2Impact 2026
+            </p>
+          </div>
+          
+          <a href="https://ucladevx.com" target="_blank" rel="noopener noreferrer" class="devx-open-btn" aria-label="Open DevX Website (opens in new tab)">
+            <span>Open Website</span>
+            <svg class="devx-arrow-svg" width="13" height="13" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 1H9M9 1V8M9 1L1 9" stroke="#3560E4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Hero Media Box (DevX Video 1) -->
+        <div class="devx-hero-box reveal-chunk">
+          <img src="assets/devx_hero.png" alt="DevX Website Landing Page Preview">
+        </div>
+
+        <!-- Project Metadata Grid (4 Columns) -->
+        <div class="devx-meta-grid reveal-chunk">
+          <div class="meta-column">
+            <h2 class="meta-column-header">Role</h2>
+            <div class="meta-column-content">
+              <p>UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Languages</h2>
+            <div class="meta-column-content">
+              <p>Javascript</p>
+              <p>HTML</p>
+              <p>CSS</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Team</h2>
+            <div class="meta-column-content">
+              <p>Just me!</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Timeline</h2>
+            <div class="meta-column-content">
+              <p>Aug-Dec 2026</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Divider Line -->
+      <div class="devx-divider-wrap reveal-chunk" aria-hidden="true">
+        <hr class="devx-divider">
+      </div>
+
+      <!-- ABOUT SECTION -->
+      <section class="devx-about-section reveal-chunk" id="about">
+        <h2 class="devx-about-title">About</h2>
+        <div class="devx-about-content">
+          <p>I designed the website for one of my school orgs, DevX! I utilized  the Figma MCP server, and this was my first project where I owned both design and development.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js?v=3"></script>
+</body>
+</html>

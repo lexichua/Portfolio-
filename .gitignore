@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Large raw source media not used by the web application (>50MB)
+*.gif
+/Bike Pantry/
+/Playground Images/
+/assets/*.gif
+/assets/106a1e6ced42b793894b20b6dfac19013597c7b5.png
+/assets/4e64c71d2166dca5aa0e151bc53a219aa9caa403.png
+/assets/6cf302d98b4093cb44b2517f354098db8fd3f2ba.png
+/assets/6eddab362729416da806b9868dd7d545995c1de6.png
+/drone-video-pan-up-of-heavy-los-angeles-traffic.mp4
+/ZooxPreviewAnimation.mp4
+

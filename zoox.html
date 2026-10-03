@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZOOX — Lexi Chua</title>
+  <meta name="description" content="Projects worked on for Zoox, the fully autonomous robotaxi company, by Lexi Chua.">
+  
+  <!-- Google Fonts: Figtree, Outfit, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css?v=5">
+</head>
+<body class="zoox-page">
+
+  <!-- Custom Morphing Cursor Element -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <div class="custom-cursor-shape"></div>
+  </div>
+
+  <!-- Subtle Top & Bottom Viewport Edge Fades -->
+  <div class="viewport-fade-top" aria-hidden="true"></div>
+  <div class="viewport-fade-bottom" aria-hidden="true"></div>
+
+  <!-- Top Floating Navigation Bar (Universal across site) -->
+  <div class="top-header-wrapper" id="top-nav-wrapper">
+    <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
+      <div class="nav-wing nav-wing-left">
+        <a href="index.html" class="nav-pill">Work</a>
+        <a href="index.html#play" class="nav-pill">Play</a>
+      </div>
+
+      <a href="index.html" class="nav-logo-box" id="nav-logo-box" aria-label="Return to home page">
+        <img src="assets/logo_union.svg" id="nav-logo-img" alt="Lexi Chua Logo" width="40" height="40">
+      </a>
+
+      <div class="nav-wing nav-wing-right">
+        <a href="index.html#about" class="nav-pill">About</a>
+        <a href="https://drive.google.com/file/d/1Vvf6IKBH4ZEHBFksC2GzY-p0pDCKIhQ1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill">Resume</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="page-container">
+    
+    <!-- Left Navigation: Back to Projects Link -->
+    <aside class="side-nav-wrapper" aria-label="Page Navigation">
+      <nav class="side-toc">
+        <a href="index.html" class="back-link">
+          <span aria-hidden="true">&larr;</span> Back to Projects
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="zoox-article">
+      
+      <!-- HEADER & HERO SECTION -->
+      <header class="section zoox-header" id="hero">
+        <div class="reveal-chunk">
+          <h1 class="hero-title zoox-title">ZOOX</h1>
+          <p class="hero-subtitle zoox-subtitle">
+            Projects I worked on for Zoox, the fully autonomous, all-electric robotaxi company which is paving the future of transportation.
+          </p>
+        </div>
+        
+        <!-- Hero Media Box (Zoox Preview Animation) -->
+        <div class="zoox-hero-box reveal-chunk">
+          <video autoplay loop muted playsinline>
+            <source src="assets/ZooxPreviewAnimation.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Project Metadata Grid (4 Columns) -->
+        <div class="zoox-meta-grid reveal-chunk">
+          <div class="meta-column">
+            <h2 class="meta-column-header">Role</h2>
+            <div class="meta-column-content">
+              <p>Designer</p>
+              <p>Front End Developer</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Tools</h2>
+            <div class="meta-column-content">
+              <p>Figma</p>
+              <p>Google Antigravity</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Team</h2>
+            <div class="meta-column-content">
+              <p>Zoox CRM team</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Timeline</h2>
+            <div class="meta-column-content">
+              <p>Summer 2026</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- OVERVIEW SECTION -->
+      <section class="zoox-overview-section reveal-chunk" id="overview">
+        <h2 class="zoox-overview-title">Overview</h2>
+        <div class="zoox-overview-content">
+          <p>Over the summer I worked on two interfaces on the customer relationship management marketing team. I worked on both a public facing events interface and an internal form to move customers off the Zoox waiting list. The form I worked on has been adopted at all of the Zoox rider lounges around the country.</p>
+        </div>
+      </section>
+
+      <!-- COMING SOON CAPTION -->
+      <div class="zoox-coming-soon reveal-chunk">
+        more coming soon!
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js?v=4"></script>
+</body>
+</html>
