@@ -362,4 +362,212 @@ document.addEventListener('DOMContentLoaded', () => {
       switchPlayTab(initialHash);
     }
   }
+
+  // 9. Interactive Music Player
+  const musicCards = document.querySelectorAll('.music-track-card');
+  const dockBar = document.getElementById('music-dock-bar');
+  const dockTitle = document.getElementById('dock-title');
+  const dockTime = document.getElementById('dock-time');
+  const dockProgressBox = document.getElementById('dock-progress-box');
+  const dockProgressFill = document.getElementById('dock-progress-fill');
+  const dockToggleBtn = document.getElementById('dock-toggle-btn');
+  const dockCloseBtn = document.getElementById('dock-close-btn');
+
+  let activeAudio = null;
+  let activeCard = null;
+
+  const formatAudioTime = (seconds) => {
+    if (isNaN(seconds) || !isFinite(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
+
+  const stopActiveAudio = () => {
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+    }
+    if (activeCard) {
+      activeCard.classList.remove('is-playing');
+      const progressFill = activeCard.querySelector('.music-progress-fill');
+      if (progressFill) progressFill.style.width = '0%';
+      const timeEl = activeCard.querySelector('.music-track-time');
+      const audioEl = activeCard.querySelector('audio');
+      if (timeEl && audioEl && audioEl.duration) {
+        timeEl.textContent = formatAudioTime(audioEl.duration);
+      }
+    }
+    if (dockBar) {
+      dockBar.classList.remove('is-playing', 'is-visible');
+    }
+    activeAudio = null;
+    activeCard = null;
+  };
+
+  const pauseActiveAudio = () => {
+    if (activeAudio) {
+      activeAudio.pause();
+    }
+    if (activeCard) {
+      activeCard.classList.remove('is-playing');
+    }
+    if (dockBar) {
+      dockBar.classList.remove('is-playing');
+    }
+  };
+
+  const resumeActiveAudio = () => {
+    if (activeAudio) {
+      activeAudio.play().then(() => {
+        if (activeCard) activeCard.classList.add('is-playing');
+        if (dockBar) {
+          dockBar.classList.add('is-visible', 'is-playing');
+        }
+      }).catch(err => {
+        console.warn('Audio playback error:', err);
+      });
+    }
+  };
+
+  const playTrack = (card) => {
+    const audio = card.querySelector('audio');
+    if (!audio) return;
+
+    if (activeAudio === audio) {
+      if (audio.paused) {
+        resumeActiveAudio();
+      } else {
+        pauseActiveAudio();
+      }
+      return;
+    }
+
+    // Stop any other currently playing track
+    if (activeAudio && activeAudio !== audio) {
+      activeAudio.pause();
+      if (activeCard) {
+        activeCard.classList.remove('is-playing');
+        const fill = activeCard.querySelector('.music-progress-fill');
+        if (fill) fill.style.width = '0%';
+      }
+    }
+
+    activeAudio = audio;
+    activeCard = card;
+
+    const titleEl = card.querySelector('.music-track-title');
+    const trackTitle = titleEl ? titleEl.textContent : 'OST Track';
+
+    audio.play().then(() => {
+      card.classList.add('is-playing');
+      if (dockBar) {
+        dockBar.classList.add('is-visible', 'is-playing');
+        if (dockTitle) dockTitle.textContent = trackTitle;
+      }
+    }).catch(err => {
+      console.warn('Playback initiation error:', err);
+    });
+  };
+
+  if (musicCards.length > 0) {
+    musicCards.forEach(card => {
+      const audio = card.querySelector('audio');
+      const cover = card.querySelector('.music-track-cover');
+      const progressWrapper = card.querySelector('.music-progress-wrapper');
+      const progressFill = card.querySelector('.music-progress-fill');
+      const timeEl = card.querySelector('.music-track-time');
+
+      if (!audio) return;
+
+      // Click cover or play button to play/pause
+      if (cover) {
+        cover.addEventListener('click', (e) => {
+          e.stopPropagation();
+          playTrack(card);
+        });
+      }
+
+      // Sync duration when metadata loads
+      audio.addEventListener('loadedmetadata', () => {
+        if (timeEl && audio.duration) {
+          timeEl.textContent = formatAudioTime(audio.duration);
+        }
+      });
+
+      // Update progress and time
+      audio.addEventListener('timeupdate', () => {
+        if (!audio.duration) return;
+        const pct = (audio.currentTime / audio.duration) * 100;
+        if (progressFill) progressFill.style.width = `${pct}%`;
+
+        const cur = formatAudioTime(audio.currentTime);
+        const dur = formatAudioTime(audio.duration);
+        if (timeEl) timeEl.textContent = `${cur} / ${dur}`;
+
+        if (activeAudio === audio && dockBar) {
+          if (dockProgressFill) dockProgressFill.style.width = `${pct}%`;
+          if (dockTime) dockTime.textContent = `${cur} / ${dur}`;
+        }
+      });
+
+      // Handle song finish
+      audio.addEventListener('ended', () => {
+        card.classList.remove('is-playing');
+        if (progressFill) progressFill.style.width = '0%';
+        if (timeEl && audio.duration) {
+          timeEl.textContent = formatAudioTime(audio.duration);
+        }
+        if (dockBar) {
+          dockBar.classList.remove('is-playing');
+          if (dockProgressFill) dockProgressFill.style.width = '0%';
+        }
+      });
+
+      // Seek via track progress bar
+      if (progressWrapper) {
+        progressWrapper.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!audio.duration) return;
+          const rect = progressWrapper.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          const clickPct = Math.max(0, Math.min(1, clickX / rect.width));
+          audio.currentTime = clickPct * audio.duration;
+          if (audio.paused) {
+            playTrack(card);
+          }
+        });
+      }
+    });
+
+    // Dock toggle play/pause
+    if (dockToggleBtn) {
+      dockToggleBtn.addEventListener('click', () => {
+        if (!activeAudio) return;
+        if (activeAudio.paused) {
+          resumeActiveAudio();
+        } else {
+          pauseActiveAudio();
+        }
+      });
+    }
+
+    // Dock close/stop button
+    if (dockCloseBtn) {
+      dockCloseBtn.addEventListener('click', () => {
+        stopActiveAudio();
+      });
+    }
+
+    // Dock seek
+    if (dockProgressBox) {
+      dockProgressBox.addEventListener('click', (e) => {
+        if (!activeAudio || !activeAudio.duration) return;
+        const rect = dockProgressBox.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const clickPct = Math.max(0, Math.min(1, clickX / rect.width));
+        activeAudio.currentTime = clickPct * activeAudio.duration;
+      });
+    }
+  }
 });
