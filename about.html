@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Lexi Chua</title>
+  <meta name="description" content="About Lexi Chua — Cognitive Science student at UCLA class of '29 and interdisciplinary designer.">
+  
+  <!-- Google Fonts: Figtree, Outfit, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css?v=13">
+</head>
+<body class="about-page">
+
+  <!-- Custom Morphing Cursor Element -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <div class="custom-cursor-shape"></div>
+  </div>
+
+  <!-- Subtle Top & Bottom Viewport Edge Fades -->
+  <div class="viewport-fade-top" aria-hidden="true"></div>
+  <div class="viewport-fade-bottom" aria-hidden="true"></div>
+
+  <!-- Top Floating Navigation Bar (Universal across site) -->
+  <div class="top-header-wrapper" id="top-nav-wrapper">
+    <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
+      <div class="nav-wing nav-wing-left">
+        <a href="index.html" class="nav-pill">Work</a>
+        <a href="play.html" class="nav-pill">Play</a>
+      </div>
+
+      <a href="index.html" class="nav-logo-box" id="nav-logo-box" aria-label="Return to home page">
+        <img src="assets/logo_union.svg" id="nav-logo-img" alt="Lexi Chua Logo" width="40" height="40">
+      </a>
+
+      <div class="nav-wing nav-wing-right">
+        <a href="about.html" class="nav-pill active">About</a>
+        <a href="https://drive.google.com/file/d/1Vvf6IKBH4ZEHBFksC2GzY-p0pDCKIhQ1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill">Resume</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="page-container about-page-container">
+    <main class="about-article">
+      <div class="about-content-grid reveal-chunk">
+        
+        <!-- Left Column: Bio Text -->
+        <div class="about-text-col">
+          <h1 class="about-heading">Hi I’m Lexi!</h1>
+          <div class="about-bio">
+            <p>I grew up in the SF Bay Area and I am currently studying Cognitive Science at UCLA class of 29’.</p>
+            <p>I am interested in what drives people’s thoughts, feelings, and interactions, and I strive to design experiences that seamlessly integrate the way we think.</p>
+            <p>Growing up, I loved video game art and storytelling which inspired me to create art of my own. I started making digital art when I was 11 and it has been a part of my life since!</p>
+          </div>
+        </div>
+
+        <!-- Right Column: Portrait Photo -->
+        <div class="about-photo-col">
+          <div class="about-photo-wrapper">
+            <img src="assets/about_lexi_photo.png" alt="Lexi Chua" class="about-photo" width="428" height="411">
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js?v=6"></script>
+</body>
+</html>

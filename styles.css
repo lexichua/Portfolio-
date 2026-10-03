@@ -2258,5 +2258,110 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   }
 }
 
+/* ==========================================================================
+   ABOUT PAGE STYLES (Figma Node 360:661)
+   ========================================================================== */
+.about-page-container {
+  padding-top: 240px;
+  padding-bottom: 140px;
+}
+
+.about-article {
+  width: 100%;
+  max-width: var(--content-max-width); /* 856px */
+  margin: 0 auto;
+}
+
+.about-content-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 56px;
+  width: 100%;
+}
+
+.about-text-col {
+  flex: 1;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-heading {
+  font-family: var(--font-main);
+  font-size: 32px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.about-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.about-bio p {
+  font-family: var(--font-main);
+  font-size: 16px;
+  color: #5e5e5e;
+  line-height: 1.45;
+  font-weight: 400;
+  margin: 0;
+}
+
+.about-photo-col {
+  flex-shrink: 0;
+}
+
+.about-photo-wrapper {
+  width: 428px;
+  height: 411px;
+  max-width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background: #fdfdfd;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.about-photo-wrapper:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+  border-radius: 20px;
+}
+
+@media (max-width: 860px) {
+  .about-page-container {
+    padding-top: 180px;
+  }
+  .about-content-grid {
+    flex-direction: column-reverse;
+    gap: 36px;
+    align-items: center;
+  }
+  .about-text-col {
+    max-width: 100%;
+  }
+  .about-photo-wrapper {
+    width: 100%;
+    max-width: 428px;
+    height: auto;
+    aspect-ratio: 428 / 411;
+  }
+}
+
+
 
 
