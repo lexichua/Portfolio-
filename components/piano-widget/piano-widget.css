@@ -126,50 +126,49 @@
   transform-origin: left center;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), 
-              box-shadow 0.85s ease,
-              opacity 0.25s ease,
-              visibility 0.25s step-start;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.85s ease;
   z-index: 15;
   cursor: pointer;
-  opacity: 1;
-  visibility: visible;
 }
 
 .piano-book.is-closed .piano-book-cover {
   transform: rotateY(0deg);
-  opacity: 1;
-  visibility: visible;
+  display: block;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .piano-book.is-open .piano-book-cover {
   transform: rotateY(-180deg);
-  opacity: 0;
-  visibility: hidden;
   pointer-events: none;
   box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.12);
-  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), 
-              box-shadow 0.85s ease,
-              opacity 0.25s ease 0.85s,
-              visibility 0.25s step-end 0.85s;
 }
 
-/* Book Cover Faces */
+/* Completely remove the cover once flip ends so underlying lyrics & sheet music are fully clear */
+.piano-book.is-open .piano-book-cover.is-removed,
+.piano-book-cover.is-removed {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* Book Cover Faces - 3D dual-sided leaf */
 .book-cover-face {
   position: absolute;
   inset: 0;
   backface-visibility: hidden !important;
   -webkit-backface-visibility: hidden !important;
-  overflow: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
+/* Front Face: The Lavender Book Cover PNG */
 .book-cover-front {
-  z-index: 2;
-  transform: rotateY(0deg) translateZ(2px);
-  -webkit-transform: rotateY(0deg) translateZ(2px);
+  transform: rotateY(0deg) translateZ(1.5px);
+  -webkit-transform: rotateY(0deg) translateZ(1.5px);
   border-radius: 3px 6px 6px 3px;
   background: #b89fed;
+  z-index: 2;
 }
 
 .book-cover-img {
@@ -177,26 +176,28 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 3px 6px 6px 3px;
   backface-visibility: hidden !important;
   -webkit-backface-visibility: hidden !important;
-  transform: translateZ(1px);
-  -webkit-transform: translateZ(1px);
 }
 
-/* Inside of Cover - Pure Solid White */
+/* Back Face: Solid Pure Flat White (Inside of cover during flip) */
 .book-cover-back {
-  z-index: 3;
-  transform: rotateY(180deg) translateZ(2px);
-  -webkit-transform: rotateY(180deg) translateZ(2px);
+  transform: rotateY(180deg) translateZ(1.5px);
+  -webkit-transform: rotateY(180deg) translateZ(1.5px);
+  background-color: #ffffff !important;
   background: #ffffff !important;
   border-radius: 6px 3px 3px 6px;
-  border-right: 1px solid #e8e8e8;
+  border-right: 1px solid #eaeaea;
+  z-index: 1;
 }
 
 .book-cover-back-inner {
   width: 100%;
   height: 100%;
+  background-color: #ffffff !important;
   background: #ffffff !important;
+  border-radius: 6px 3px 3px 6px;
 }
 
 /* Sheet Music Staff Lines (Figma Node 523:2605 & 515:2580) */

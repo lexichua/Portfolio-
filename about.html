@@ -333,6 +333,44 @@
     // Music Book 3D Scroll Reveal: opens up when scrolled into view
     const pianoSection = document.querySelector('.about-piano-section');
     const pianoBook = document.getElementById('piano-book');
+    const pianoCover = document.getElementById('piano-book-cover');
+
+    function openMusicBook() {
+      if (!pianoBook || !pianoBook.classList.contains('is-closed')) return;
+
+      // Ensure cover is visible and ready to flip
+      if (pianoCover) {
+        pianoCover.classList.remove('is-removed');
+        pianoCover.style.display = 'block';
+      }
+
+      // Begin 3D flip animation (duration 0.85s)
+      pianoBook.classList.remove('is-closed');
+      pianoBook.classList.add('is-open');
+
+      // Once the flip completes, remove the cover completely so words & staves are 100% visible
+      let removed = false;
+      const removeCover = () => {
+        if (removed) return;
+        removed = true;
+        if (pianoCover && pianoBook.classList.contains('is-open')) {
+          pianoCover.classList.add('is-removed');
+          pianoCover.style.display = 'none';
+        }
+      };
+
+      if (pianoCover) {
+        pianoCover.addEventListener('transitionend', function onEnd(e) {
+          if (e.propertyName === 'transform') {
+            pianoCover.removeEventListener('transitionend', onEnd);
+            removeCover();
+          }
+        });
+      }
+
+      // Reliable fallback at 880ms
+      setTimeout(removeCover, 880);
+    }
 
     if (pianoSection && pianoBook) {
       let hasOpened = false;
@@ -343,8 +381,7 @@
             hasOpened = true;
             // Smooth delay as the piano rolls into comfortable view
             setTimeout(() => {
-              pianoBook.classList.remove('is-closed');
-              pianoBook.classList.add('is-open');
+              openMusicBook();
             }, 350);
           }
         });
@@ -354,11 +391,10 @@
 
       observer.observe(pianoSection);
 
-      // Also allow clicking book to toggle open/close
+      // Also allow clicking book to open if not already open
       pianoBook.addEventListener('click', (e) => {
         if (pianoBook.classList.contains('is-closed')) {
-          pianoBook.classList.remove('is-closed');
-          pianoBook.classList.add('is-open');
+          openMusicBook();
           hasOpened = true;
         }
       });
