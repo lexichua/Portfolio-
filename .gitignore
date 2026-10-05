@@ -16,3 +16,7 @@ Thumbs.db
 /ZooxPreviewAnimation.mp4
 /Play/
 
+# Node & Build artifacts
+node_modules/
+dist/
+.vite/

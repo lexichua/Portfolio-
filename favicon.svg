@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="none">
+  <path id="Union" d="M10 20C15.5228 20 20 24.4772 20 30C20 35.5228 15.5228 40 10 40C4.47715 40 0 35.5228 0 30C0 24.4772 4.47715 20 10 20ZM30 20C35.5228 20 40 24.4772 40 30C40 35.5228 35.5228 40 30 40C24.4772 40 20 35.5228 20 30C20 24.4772 24.4772 20 30 20ZM10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0ZM30 0C35.5228 0 40 4.47715 40 10C40 15.5228 35.5228 20 30 20C24.4772 20 20 15.5228 20 10C20 4.47715 24.4772 0 30 0Z" fill="url(#paint0_linear_442_1157)"/>
+  <defs>
+    <linearGradient id="paint0_linear_442_1157" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BFA2F8"/>
+      <stop offset="1" stop-color="#D4CDFF"/>
+    </linearGradient>
+  </defs>
+</svg>
