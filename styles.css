@@ -2365,6 +2365,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   overflow: visible;
   background: transparent;
   cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.about-photo-wrapper:hover {
+  transform: rotate(-2deg) scale(1.02);
 }
 
 .about-photo {
@@ -2374,6 +2381,11 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   display: block;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-photo-wrapper:hover .about-photo {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
 }
 
 /* Signature Overlay (Crisp 2x Retina Spritesheet on Transparent Canvas) */
