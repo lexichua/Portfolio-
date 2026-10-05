@@ -195,27 +195,47 @@
         <div class="piano-widget-container" id="piano-component">
           <div class="piano-upright">
             
-            <!-- Top Backboard with Sheet Music -->
+            <!-- Top Backboard with 3D Opening Music Book -->
             <div class="piano-backboard">
-              <div class="piano-sheet" id="piano-sheet" tabindex="0" role="region" aria-label="Sheet music displaying revealed sentence.">
-                
-                <!-- Treble Staff (Top) -->
-                <div class="piano-staff">
-                  <img src="assets/piano/sheet-treble-staff.svg" alt="Treble Clef Staff" width="439" height="38">
-                </div>
+              <div class="piano-book-wrapper" id="piano-book-wrapper">
+                <div class="piano-book is-closed" id="piano-book" title="Click to open or close book">
+                  
+                  <!-- Open Sheet Music (Inside Pages Spread) -->
+                  <div class="piano-sheet" id="piano-sheet" tabindex="0" role="region" aria-label="Sheet music displaying revealed sentence.">
+                    
+                    <!-- Center Spine Crease Effect for Open Book -->
+                    <div class="piano-sheet-crease" aria-hidden="true"></div>
 
-                <!-- Center Interactive Lyrics -->
-                <div class="piano-lyrics-wrap">
-                  <p class="piano-lyrics" id="piano-lyrics" aria-live="polite">
-                    <!-- Generated dynamically -->
-                  </p>
-                </div>
+                    <!-- Treble Staff (Top) -->
+                    <div class="piano-staff">
+                      <img src="assets/piano/sheet-treble-staff.svg" alt="Treble Clef Staff" width="439" height="38">
+                    </div>
 
-                <!-- Bass Staff (Bottom) -->
-                <div class="piano-staff">
-                  <img src="assets/piano/sheet-bass-staff.svg" alt="Bass Clef Staff" width="439" height="38">
-                </div>
+                    <!-- Center Interactive Lyrics -->
+                    <div class="piano-lyrics-wrap">
+                      <p class="piano-lyrics" id="piano-lyrics" aria-live="polite">
+                        <!-- Generated dynamically -->
+                      </p>
+                    </div>
 
+                    <!-- Bass Staff (Bottom) -->
+                    <div class="piano-staff">
+                      <img src="assets/piano/sheet-bass-staff.svg" alt="Bass Clef Staff" width="439" height="38">
+                    </div>
+
+                  </div>
+
+                  <!-- 3D Turning Front Cover (Lavender Music Book Cover) -->
+                  <div class="piano-book-cover" id="piano-book-cover" aria-hidden="true">
+                    <div class="book-cover-face book-cover-front">
+                      <img src="assets/piano/music_book_cover@2x.png" alt="Music Book Cover" class="book-cover-img" width="237" height="224">
+                    </div>
+                    <div class="book-cover-face book-cover-back">
+                      <div class="book-cover-back-inner"></div>
+                    </div>
+                  </div>
+
+                </div>
               </div>
             </div>
 
@@ -292,6 +312,40 @@
 
       photoWrap.addEventListener('mouseenter', () => {
         startAnimation();
+      });
+    }
+
+    // Music Book 3D Scroll Reveal: opens up when scrolled into view
+    const pianoSection = document.querySelector('.about-piano-section');
+    const pianoBook = document.getElementById('piano-book');
+
+    if (pianoSection && pianoBook) {
+      let hasOpened = false;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasOpened) {
+            hasOpened = true;
+            // Smooth delay as the piano rolls into comfortable view
+            setTimeout(() => {
+              pianoBook.classList.remove('is-closed');
+              pianoBook.classList.add('is-open');
+            }, 350);
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+
+      observer.observe(pianoSection);
+
+      // Also allow clicking book to toggle open/close
+      pianoBook.addEventListener('click', (e) => {
+        if (pianoBook.classList.contains('is-closed')) {
+          pianoBook.classList.remove('is-closed');
+          pianoBook.classList.add('is-open');
+          hasOpened = true;
+        }
       });
     }
   </script>
