@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Upright Piano Component · Sandbox</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <!-- Base Site Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Isolated Piano Component Styles -->
+  <link rel="stylesheet" href="components/piano-widget/piano-widget.css">
+
+  <style>
+    /* Sandbox Environment Styling */
+    .sandbox-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f7f7f9;
+      color: #1a1a1a;
+      font-family: var(--font-main, 'Figtree', sans-serif);
+    }
+
+    .sandbox-header {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+    }
+
+    .sandbox-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sandbox-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ede4ff;
+      color: #7742e1;
+    }
+
+    .sandbox-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      margin: 0;
+    }
+
+    .sandbox-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .control-group {
+      display: inline-flex;
+      background: #f0f0f4;
+      padding: 3px;
+      border-radius: 10px;
+      gap: 2px;
+    }
+
+    .control-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #555;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .control-btn:hover {
+      color: #000;
+    }
+
+    .control-btn.active {
+      background: #ffffff;
+      color: #000;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .sandbox-back-link {
+      font-size: 13px;
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.15s ease;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .sandbox-back-link:hover {
+      color: #000;
+      background: #f0f0f4;
+    }
+
+    .sandbox-viewport-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px 80px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sandbox-canvas {
+      width: 100%;
+      max-width: 1180px;
+      min-height: 600px;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+      padding: 48px 36px;
+      position: relative;
+      transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Sandbox Background Variants */
+    .sandbox-canvas[data-bg="light"] {
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+    .sandbox-canvas[data-bg="muted"] {
+      background: #f6f7fc;
+      color: #1a1a1a;
+    }
+    .sandbox-canvas[data-bg="dark"] {
+      background: #18181b;
+      color: #f0f0f0;
+    }
+
+    /* Sandbox Viewport Variants */
+    .sandbox-canvas[data-viewport="mobile"] {
+      max-width: 440px;
+      padding: 24px 16px;
+    }
+    .sandbox-canvas[data-viewport="tablet"] {
+      max-width: 820px;
+      padding: 32px 24px;
+    }
+    .sandbox-canvas[data-viewport="desktop"] {
+      max-width: 1180px;
+      padding: 48px 36px;
+    }
+    .sandbox-canvas[data-viewport="full"] {
+      max-width: 100%;
+      padding: 48px 36px;
+    }
+  </style>
+</head>
+<body class="sandbox-page">
+
+  <!-- Sandbox Toolbar -->
+  <header class="sandbox-header">
+    <div class="sandbox-brand">
+      <span class="sandbox-badge">Component Sandbox</span>
+      <h1 class="sandbox-title">Interactive Upright Piano</h1>
+    </div>
+
+    <div class="sandbox-controls">
+      <!-- Viewport Size Switcher -->
+      <div class="control-group" id="viewport-controls">
+        <button class="control-btn" data-viewport="mobile">Mobile</button>
+        <button class="control-btn" data-viewport="tablet">Tablet</button>
+        <button class="control-btn active" data-viewport="desktop">Desktop</button>
+        <button class="control-btn" data-viewport="full">Full Width</button>
+      </div>
+
+      <!-- Canvas Background Switcher -->
+      <div class="control-group" id="bg-controls">
+        <button class="control-btn active" data-bg="light">Light</button>
+        <button class="control-btn" data-bg="muted">Muted</button>
+        <button class="control-btn" data-bg="dark">Dark</button>
+      </div>
+
+      <a href="index.html" class="sandbox-back-link">← Back to Site</a>
+    </div>
+  </header>
+
+  <!-- Sandbox Viewport Area -->
+  <main class="sandbox-viewport-wrapper">
+    <div class="sandbox-canvas" id="sandbox-canvas" data-viewport="desktop" data-bg="light">
+      
+      <!-- ============================================== -->
+      <!-- COMPONENT ROOT: UPWRIGHT PIANO COMPONENT       -->
+      <!-- ============================================== -->
+      <div class="piano-widget-container" id="piano-component">
+        <div class="piano-upright">
+          
+          <!-- Top Backboard with Sheet Music -->
+          <div class="piano-backboard">
+            <div class="piano-sheet" id="piano-sheet" tabindex="0" role="region" aria-label="Sheet music displaying revealed sentence. Click to play next note.">
+              
+              <!-- Treble Staff (Top) -->
+              <div class="piano-staff">
+                <img src="assets/piano/sheet-treble-staff.svg" alt="Treble Clef Staff" width="439" height="38">
+              </div>
+
+              <!-- Center Interactive Lyrics -->
+              <div class="piano-lyrics-wrap">
+                <p class="piano-lyrics" id="piano-lyrics" aria-live="polite">
+                  <!-- Generated dynamically -->
+                </p>
+              </div>
+
+              <!-- Bass Staff (Bottom) -->
+              <div class="piano-staff">
+                <img src="assets/piano/sheet-bass-staff.svg" alt="Bass Clef Staff" width="439" height="38">
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Piano Case & Keyboard Housing -->
+          <div class="piano-case">
+            <div class="piano-scroll-wrapper" id="piano-scroll-wrapper">
+              <div class="piano-keyboard" id="piano-keyboard">
+                <!-- 22 White Keys & 15 Black Keys generated dynamically -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Controls & Hints -->
+        <div class="piano-toolbar">
+          <div class="piano-hint">
+            <span style="font-size: 18px;">🎹</span>
+            <span>Type the letters to play note-by-note &bull; Next: <strong id="piano-next-key">I</strong></span>
+          </div>
+          <div class="piano-actions">
+            <button type="button" class="piano-btn" id="piano-sus-btn" aria-pressed="false">Sustain</button>
+            <button type="button" class="piano-btn" id="piano-reset-btn" title="Restart song">Reset</button>
+            <div class="piano-vol-wrap">
+              <span>🔊</span>
+              <input type="range" class="piano-vol-slider" id="piano-vol-slider" min="0" max="1" step="0.01" value="0.50" aria-label="Volume">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================== -->
+
+    </div>
+  </main>
+
+  <script>
+    // Sandbox Viewport & Background Switcher Logic
+    const canvas = document.getElementById('sandbox-canvas');
+
+    document.querySelectorAll('#viewport-controls .control-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#viewport-controls .control-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        canvas.setAttribute('data-viewport', btn.dataset.viewport);
+      });
+    });
+
+    document.querySelectorAll('#bg-controls .control-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#bg-controls .control-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        canvas.setAttribute('data-bg', btn.dataset.bg);
+      });
+    });
+  </script>
+
+  <!-- Component Script -->
+  <script type="module">
+    import { initPianoWidget } from './components/piano-widget/piano-widget.js';
+    initPianoWidget('#piano-component');
+  </script>
+</body>
+</html>

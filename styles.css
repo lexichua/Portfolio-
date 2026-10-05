@@ -1,3 +1,5 @@
+@import './components/piano-widget/piano-widget.css';
+
 /* ==========================================================================
    Bike Pantry Case Study - Design System & Styles
    Extracted & Adapted from Figma
@@ -2263,12 +2265,12 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
    ========================================================================== */
 .about-page-container {
   padding-top: 240px;
-  padding-bottom: 140px;
+  padding-bottom: 160px;
 }
 
 .about-article {
   width: 100%;
-  max-width: var(--content-max-width); /* 856px */
+  max-width: 880px;
   margin: 0 auto;
 }
 
@@ -2278,6 +2280,8 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   align-items: flex-start;
   gap: 56px;
   width: 100%;
+  max-width: 856px;
+  margin: 0 auto;
 }
 
 .about-text-col {
@@ -2313,18 +2317,53 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   margin: 0;
 }
 
+/* Lets work together row */
+.about-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.contact-label {
+  font-family: var(--font-main);
+  font-size: 16px;
+  color: #5e5e5e;
+}
+
+.contact-icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.contact-icon-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
 .about-photo-col {
   flex-shrink: 0;
 }
 
 .about-photo-wrapper {
+  position: relative;
   width: 428px;
   max-width: 100%;
   aspect-ratio: 428 / 411;
   border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  background: #fdfdfd;
+  overflow: visible;
+  background: transparent;
+  cursor: pointer;
 }
 
 .about-photo {
@@ -2333,15 +2372,185 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   object-fit: cover;
   display: block;
   border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Signature Overlay (Crisp 2x Retina Spritesheet on Transparent Canvas) */
+.about-signature-wrapper {
+  position: absolute;
+  right: 14px;
+  bottom: 16px;
+  width: 250px;
+  height: 135px;
+  pointer-events: none;
+  transform: rotate(-15.13deg);
+  transform-origin: center center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.about-signature-wrapper.is-visible {
+  opacity: 1;
+}
+
+.about-signature-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   Experience Section (Figma Node 360:661 - Compact 594px Block)
+   ========================================================================== */
+.about-experience-section {
+  margin-top: 120px;
+  width: 100%;
+  max-width: 594px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.experience-title {
+  font-family: var(--font-main);
+  font-size: 36px;
+  font-weight: 400;
+  color: #000000;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Available for summer 2027 badge */
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f5fff4;
+  border: 1px solid #99e092;
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 500;
+  color: #3dac6d;
+}
+
+.availability-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #3dac6d;
+  box-shadow: 0 0 0 3px rgba(153, 224, 146, 0.35);
+  animation: pulseAvailability 2s infinite ease-in-out;
+}
+
+@keyframes pulseAvailability {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.25); opacity: 0.6; }
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+
+.experience-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 0;
+  gap: 16px;
+}
+
+.experience-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.experience-logo {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.experience-text {
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.experience-org {
+  color: #2c2c2c;
+  font-weight: 500;
+}
+
+.experience-sep {
+  color: #888888;
+  margin: 0 4px;
+}
+
+.experience-role {
+  color: #5e5e5e;
+}
+
+.experience-date {
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: #5e5e5e;
+  text-align: right;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.experience-subtitle {
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   Learn About Me (Interactive Piano) Section
+   ========================================================================== */
+.about-piano-section {
+  margin-top: 130px;
+  width: 100%;
+}
+
+.piano-section-title {
+  font-family: var(--font-main);
+  font-size: 36px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 32px;
+  letter-spacing: -0.01em;
 }
 
 @media (max-width: 860px) {
   .about-page-container {
     padding-top: 180px;
+    padding-bottom: 100px;
   }
   .about-content-grid {
     flex-direction: column-reverse;
-    gap: 36px;
+    gap: 40px;
     align-items: center;
   }
   .about-text-col {
@@ -2352,6 +2561,27 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
     max-width: 428px;
     height: auto;
     aspect-ratio: 428 / 411;
+  }
+  .about-experience-section {
+    margin-top: 90px;
+  }
+  .experience-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .experience-date {
+    padding-left: 61px;
+    font-size: 13px;
+  }
+  .about-piano-section {
+    margin-top: 100px;
+  }
+  .about-signature-wrapper {
+    right: 8px;
+    bottom: 12px;
+    width: 200px;
+    height: 108px;
   }
 }
 

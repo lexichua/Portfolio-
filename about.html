@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./components/piano-widget/piano-widget.css">
 </head>
 <body class="about-page">
 
@@ -43,36 +44,256 @@
 
       <div class="nav-wing nav-wing-right">
         <a href="about.html" class="nav-pill active">About</a>
-        <a href="https://drive.google.com/file/d/1Vvf6IKBH4ZEHBFksC2GzY-p0pDCKIhQ1/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill">Resume</a>
+        <a href="https://drive.google.com/file/d/10KdwpGgJ-M44zvtkTwDR2CIg0nxfM8D4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill">Resume</a>
       </div>
     </nav>
   </div>
 
   <div class="page-container about-page-container">
     <main class="about-article">
-      <div class="about-content-grid reveal-chunk">
+      
+      <!-- Top Section: Bio Text & Portrait Photo -->
+      <section class="about-content-grid reveal-chunk">
         
-        <!-- Left Column: Bio Text -->
+        <!-- Left Column: Bio Text & Contact -->
         <div class="about-text-col">
           <h1 class="about-heading">Hi I’m Lexi!</h1>
           <div class="about-bio">
-            <p>I grew up in the SF Bay Area and I am currently studying Cognitive Science at UCLA class of 29’.</p>
-            <p>I am interested in what drives people’s thoughts, feelings, and interactions, and I strive to design experiences that seamlessly integrate the way we think.</p>
+            <p>I grew up in the SF Bay Area and I am now studying cognitive science and computing at UCLA.</p>
+            <p>I love learning about psychology and I strive to design experiences that seamlessly integrate the way we think.</p>
             <p>Growing up, I loved video game art and storytelling which inspired me to create art of my own. I started making digital art when I was 11 and it has been a part of my life since!</p>
           </div>
-        </div>
 
-        <!-- Right Column: Portrait Photo -->
-        <div class="about-photo-col">
-          <div class="about-photo-wrapper">
-            <img src="assets/about_lexi_photo.png" alt="Lexi Chua" class="about-photo" width="428" height="411">
+          <!-- Lets work together -->
+          <div class="about-contact-row">
+            <span class="contact-label">Lets work together!</span>
+            <div class="contact-icons">
+              <a href="https://www.linkedin.com/in/lexi-chua" target="_blank" rel="noopener noreferrer" class="contact-icon-btn" aria-label="LinkedIn Profile">
+                <img src="assets/experience/icon_linkedin.svg" alt="LinkedIn" width="18" height="18">
+              </a>
+              <a href="mailto:lexichua@ucla.edu" class="contact-icon-btn" aria-label="Send Email">
+                <img src="assets/experience/icon_email.svg" alt="Email" width="22" height="18">
+              </a>
+            </div>
           </div>
         </div>
 
-      </div>
+        <!-- Right Column: Portrait Photo with Hover Signature Video -->
+        <div class="about-photo-col">
+          <div class="about-photo-wrapper" id="about-photo-wrapper">
+            <img src="assets/about_lexi_photo.png" alt="Lexi Chua" class="about-photo" width="428" height="411">
+            
+            <!-- Transparent Animated Signature Canvas (Hover to write, pauses on last frame, no black box) -->
+            <div class="about-signature-wrapper" id="about-signature-wrapper">
+              <canvas id="about-signature-canvas" width="520" height="280" class="about-signature-canvas" aria-label="Lexi Chua handwritten signature"></canvas>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Experience Section -->
+      <section class="about-experience-section reveal-chunk">
+        <div class="experience-header">
+          <h2 class="experience-title">Experience</h2>
+          <div class="availability-badge">
+            <span class="availability-dot"></span>
+            <span>Available for summer 2027</span>
+          </div>
+        </div>
+
+        <div class="experience-list">
+          <!-- Item 1: UCLA Student Media -->
+          <div class="experience-item">
+            <div class="experience-main">
+              <img src="assets/experience/ucla_media.png" alt="UCLA Student Media" class="experience-logo" width="45" height="45">
+              <div class="experience-text">
+                <span class="experience-org">UCLA Student Media</span>
+                <span class="experience-sep">•</span>
+                <span class="experience-role">Product Design Manager</span>
+              </div>
+            </div>
+            <span class="experience-date">2026-PRESENT</span>
+          </div>
+
+          <!-- Item 2: UCLA Esports & Gaming -->
+          <div class="experience-item">
+            <div class="experience-main">
+              <img src="assets/experience/ucla_esports.png" alt="UCLA Esports &amp; Gaming" class="experience-logo" width="45" height="45">
+              <div class="experience-text">
+                <span class="experience-org">UCLA Esports &amp; Gaming</span>
+                <span class="experience-sep">•</span>
+                <span class="experience-role">Design Coordinator</span>
+              </div>
+            </div>
+            <span class="experience-date">2026-PRESENT</span>
+          </div>
+
+          <!-- Item 3: Stanford Medicine -->
+          <div class="experience-item">
+            <div class="experience-main">
+              <img src="assets/experience/stanford_medicine.png" alt="Stanford Medicine" class="experience-logo" width="45" height="45">
+              <div class="experience-text">
+                <span class="experience-org">Stanford Medicine</span>
+                <span class="experience-sep">•</span>
+                <span class="experience-role">Product Design Mentor</span>
+              </div>
+            </div>
+            <span class="experience-date">SUMMER 2026</span>
+          </div>
+        </div>
+
+        <!-- Organizations and Leadership Subheading -->
+        <h3 class="experience-subtitle">Organizations and Leadership</h3>
+
+        <div class="experience-list">
+          <!-- Item 4: Figma -->
+          <div class="experience-item">
+            <div class="experience-main">
+              <img src="assets/experience/figma.png" alt="Figma" class="experience-logo" width="45" height="45">
+              <div class="experience-text">
+                <span class="experience-org">Figma</span>
+                <span class="experience-sep">•</span>
+                <span class="experience-role">Campus Leader</span>
+              </div>
+            </div>
+            <span class="experience-date">2026-PRESENT</span>
+          </div>
+
+          <!-- Item 5: ACM at UCLA -->
+          <div class="experience-item">
+            <div class="experience-main">
+              <img src="assets/experience/acm.png" alt="ACM at UCLA" class="experience-logo" width="45" height="45">
+              <div class="experience-text">
+                <span class="experience-org">ACM at UCLA</span>
+                <span class="experience-sep">•</span>
+                <span class="experience-role">Design Director</span>
+              </div>
+            </div>
+            <span class="experience-date">2026-PRESENT</span>
+          </div>
+
+          <!-- Item 6: DevX -->
+          <div class="experience-item">
+            <div class="experience-main">
+              <img src="assets/experience/devx.png" alt="DevX" class="experience-logo" width="45" height="45">
+              <div class="experience-text">
+                <span class="experience-org">DevX</span>
+                <span class="experience-sep">•</span>
+                <span class="experience-role">Design Chair</span>
+              </div>
+            </div>
+            <span class="experience-date">2026-PRESENT</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Learn about me! Interactive Piano Component Section -->
+      <section class="about-piano-section reveal-chunk">
+        <h2 class="piano-section-title">Learn about me!</h2>
+
+        <div class="piano-widget-container" id="piano-component">
+          <div class="piano-upright">
+            
+            <!-- Top Backboard with Sheet Music -->
+            <div class="piano-backboard">
+              <div class="piano-sheet" id="piano-sheet" tabindex="0" role="region" aria-label="Sheet music displaying revealed sentence.">
+                
+                <!-- Treble Staff (Top) -->
+                <div class="piano-staff">
+                  <img src="assets/piano/sheet-treble-staff.svg" alt="Treble Clef Staff" width="439" height="38">
+                </div>
+
+                <!-- Center Interactive Lyrics -->
+                <div class="piano-lyrics-wrap">
+                  <p class="piano-lyrics" id="piano-lyrics" aria-live="polite">
+                    <!-- Generated dynamically -->
+                  </p>
+                </div>
+
+                <!-- Bass Staff (Bottom) -->
+                <div class="piano-staff">
+                  <img src="assets/piano/sheet-bass-staff.svg" alt="Bass Clef Staff" width="439" height="38">
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Piano Case & Keyboard Housing -->
+            <div class="piano-case">
+              <div class="piano-scroll-wrapper" id="piano-scroll-wrapper">
+                <div class="piano-keyboard" id="piano-keyboard">
+                  <!-- Generated dynamically -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
   <script type="module" src="./script.js"></script>
+  <script type="module">
+    import { initPianoWidget } from './components/piano-widget/piano-widget.js';
+    initPianoWidget('#piano-component');
+
+    // Signature canvas animation (68 frames, 2x Retina, 100% transparent, pauses on end)
+    const photoWrap = document.getElementById('about-photo-wrapper');
+    const sigWrap = document.getElementById('about-signature-wrapper');
+    const sigCanvas = document.getElementById('about-signature-canvas');
+
+    if (photoWrap && sigWrap && sigCanvas) {
+      const ctx = sigCanvas.getContext('2d');
+      const sprite = new Image();
+      sprite.src = 'assets/LexiSignature_retina.webp';
+
+      const frameW = 520;
+      const frameH = 280;
+      const totalFrames = 68;
+      const cols = 8;
+      const fps = 18; // smooth ~3.7s writing speed
+      let currentFrame = 0;
+      let animTimer = null;
+      let isLoaded = false;
+
+      sprite.onload = () => {
+        isLoaded = true;
+      };
+
+      function drawFrame(frameIdx) {
+        if (!isLoaded && !sprite.complete) return;
+        const c = frameIdx % cols;
+        const r = Math.floor(frameIdx / cols);
+        ctx.clearRect(0, 0, frameW, frameH);
+        ctx.drawImage(sprite, c * frameW, r * frameH, frameW, frameH, 0, 0, frameW, frameH);
+      }
+
+      function startAnimation() {
+        sigWrap.classList.add('is-visible');
+        if (animTimer) clearInterval(animTimer);
+        currentFrame = 0;
+        drawFrame(0);
+
+        animTimer = setInterval(() => {
+          currentFrame++;
+          if (currentFrame >= totalFrames) {
+            currentFrame = totalFrames - 1;
+            drawFrame(currentFrame);
+            clearInterval(animTimer);
+            animTimer = null; // Pauses cleanly at the end, does not loop
+          } else {
+            drawFrame(currentFrame);
+          }
+        }, 1000 / fps);
+      }
+
+      photoWrap.addEventListener('mouseenter', () => {
+        startAnimation();
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,315 @@
+/* ==========================================================================
+   Upright Interactive Piano Component
+   Flat Vector Style matching Figma (Nodes 515:2527, 515:2519, 515:2523)
+   ========================================================================== */
+
+.piano-widget-container {
+  width: 100%;
+  max-width: 1103px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  -webkit-user-select: none;
+  font-family: var(--font-main, 'Figtree', sans-serif);
+}
+
+/* Piano Upright Structure - Clean Flat Vector */
+.piano-upright {
+  width: 100%;
+  max-width: 1103px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Backboard: 1103px x 275px, Linear Gradient #5b5b5b to #818181 (Figma Node 515:2570) */
+.piano-backboard {
+  width: 100%;
+  height: 275px;
+  background: linear-gradient(180deg, #5b5b5b 0%, #818181 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Sheet Music Paper: 475px x 224px, Flat White (Figma Node 515:2569) */
+.piano-sheet {
+  width: 475px;
+  max-width: 95%;
+  height: 224px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px 18px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Sheet Music Staff Lines (Figma Node 523:2605 & 515:2580) */
+.piano-staff {
+  width: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.piano-staff img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
+}
+
+/* Center Lyrics Container (Figma Node 515:2566: 412px wide, Figtree Regular 20px) */
+.piano-lyrics-wrap {
+  width: 100%;
+  max-width: 412px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2px 4px;
+}
+
+.piano-lyrics {
+  font-family: 'Figtree', var(--font-main, sans-serif);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  color: #d3d3d3;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Character States in the Sentence */
+.piano-char {
+  display: inline;
+  color: #d3d3d3;
+  transition: color 0.1s ease, background-color 0.1s ease;
+}
+
+/* Completed/Revealed characters */
+.piano-char.done {
+  color: #1e1e1e;
+}
+
+/* Currently active character (Figma Node 523:2614: #b89fed block with white text) */
+.piano-char.cur {
+  background-color: #b89fed;
+  color: #ffffff !important;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+@keyframes charShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+.piano-char.cur.shake {
+  animation: charShake 0.22s ease-in-out;
+  background-color: #d89898 !important;
+}
+
+/* Piano Lower Housing: 1103px x 292px, #5b5b5b, rounded 20px (Figma Node 514:2299) */
+.piano-case {
+  width: 100%;
+  height: 292px;
+  background: #5b5b5b;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: -15px; /* Sits over the backboard matching Figma layout */
+}
+
+/* Keyboard Scroll Wrapper for Responsive Scaling */
+.piano-scroll-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 19px 12px 11px 12px;
+}
+.piano-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Keyboard Bed: 1078px x 262px (Figma Node 514:2464) */
+.piano-keyboard {
+  position: relative;
+  display: flex;
+  height: 262px;
+  width: 100%;
+  max-width: 1078px;
+  background: transparent;
+  touch-action: none;
+}
+
+/* White Key (Figma Node 514:2301) */
+.piano-key.white-key {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 262px;
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 0 0 6px 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  touch-action: none;
+  z-index: 1;
+  transition: background 0.05s ease;
+}
+
+/* White Key Pressed State: Variant2 (Figma Node 515:2519) */
+.piano-key.white-key.active,
+.piano-key.white-key:active {
+  background: linear-gradient(180deg, #b69eeb 0%, #d1bcff 100%);
+  box-shadow: inset 0px 4px 20.3px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+/* Black Key: 29px x 161px (Figma Node 514:2470) */
+.piano-key.black-key {
+  position: absolute;
+  top: 0;
+  width: calc(100% / 22 * 0.59);
+  max-width: 29px;
+  height: 161px;
+  background: #5b5b5b;
+  border-radius: 0 0 4px 4px;
+  transform: translateX(-50%);
+  cursor: pointer;
+  touch-action: none;
+  z-index: 3;
+  transition: background 0.05s ease;
+}
+
+/* Black Key Pressed State: Variant2 (Figma Node 515:2523) */
+.piano-key.black-key.active,
+.piano-key.black-key:active {
+  background: #b89fed;
+}
+
+/* Minimalist Flat Controls & Toolbar */
+.piano-toolbar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 10px 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #ececec;
+}
+
+.piano-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #5e5e5e;
+}
+
+.piano-hint strong {
+  color: #7742e1;
+  background: #ede4ff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.piano-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.piano-btn {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: #444444;
+  background: #ffffff;
+  border: 1px solid #e2e2e6;
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.piano-btn:hover {
+  border-color: #7742e1;
+  color: #7742e1;
+}
+
+.piano-btn.active,
+.piano-btn[aria-pressed="true"] {
+  background: #7742e1;
+  color: #ffffff;
+  border-color: #7742e1;
+}
+
+.piano-vol-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #777;
+  padding-left: 8px;
+  border-left: 1px solid #ececec;
+}
+
+.piano-vol-slider {
+  appearance: none;
+  width: 75px;
+  height: 4px;
+  background: #e5e5ea;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.piano-vol-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #7742e1;
+  cursor: pointer;
+}
+
+/* Responsive Adaptations */
+@media (max-width: 768px) {
+  .piano-backboard {
+    height: 230px;
+  }
+
+  .piano-sheet {
+    width: 100%;
+    height: 195px;
+    padding: 10px 14px;
+  }
+
+  .piano-lyrics {
+    font-size: 16px;
+  }
+
+  .piano-toolbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
