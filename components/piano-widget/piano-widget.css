@@ -36,13 +36,12 @@
   overflow: visible;
 }
 
-/* 3D Music Book Stage & Opening Animation */
+/* Music Book on Piano Backboard (Figma Node 515:2569) */
 .piano-book-wrapper {
   position: relative;
   width: 476px;
   max-width: 95%;
   height: 224px;
-  perspective: 1400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,24 +51,11 @@
   position: relative;
   width: 476px;
   height: 224px;
-  transform-style: preserve-3d;
-  transition: transform 1.0s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* Closed state: Spine moves to -119px so the 238px closed cover is centered on the piano */
-.piano-book.is-closed {
-  transform: translateX(-119px);
-}
-
-.piano-book.is-open {
-  transform: translateX(0);
 }
 
 /* Inside Sheet Music Spread: 476px x 224px (Figma Node 515:2569) */
 .piano-sheet {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 476px;
   max-width: 100%;
   height: 224px;
@@ -82,19 +68,8 @@
   outline: none;
   border-radius: 4px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
-  transition: opacity 0.5s ease;
   overflow: hidden;
   z-index: 5;
-}
-
-.piano-book.is-closed .piano-sheet {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.piano-book.is-open .piano-sheet {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 /* Center spine shadow crease on open sheet music */
@@ -114,90 +89,6 @@
   );
   pointer-events: none;
   z-index: 2;
-}
-
-/* 3D Music Book Cover Leaf - hinged at spine (left: 238px) */
-.piano-book-cover {
-  position: absolute;
-  top: 0;
-  left: 238px;
-  width: 238px;
-  height: 224px;
-  transform-origin: left center;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.85s ease;
-  z-index: 15;
-  cursor: pointer;
-}
-
-.piano-book.is-closed .piano-book-cover {
-  transform: rotateY(0deg);
-  display: block;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-.piano-book.is-open .piano-book-cover {
-  transform: rotateY(-180deg);
-  pointer-events: none;
-  box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.12);
-}
-
-/* Completely remove the cover once flip ends so underlying lyrics & sheet music are fully clear */
-.piano-book.is-open .piano-book-cover.is-removed,
-.piano-book-cover.is-removed {
-  display: none !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-  visibility: hidden !important;
-}
-
-/* Book Cover Faces - 3D dual-sided leaf */
-.book-cover-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-}
-
-/* Front Face: The Lavender Book Cover PNG */
-.book-cover-front {
-  transform: rotateY(0deg) translateZ(1.5px);
-  -webkit-transform: rotateY(0deg) translateZ(1.5px);
-  border-radius: 3px 6px 6px 3px;
-  background: #b89fed;
-  z-index: 2;
-}
-
-.book-cover-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 3px 6px 6px 3px;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-}
-
-/* Back Face: Solid Pure Flat White (Inside of cover during flip) */
-.book-cover-back {
-  transform: rotateY(180deg) translateZ(1.5px);
-  -webkit-transform: rotateY(180deg) translateZ(1.5px);
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  border-radius: 6px 3px 3px 6px;
-  border-right: 1px solid #eaeaea;
-  z-index: 1;
-}
-
-.book-cover-back-inner {
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  border-radius: 6px 3px 3px 6px;
 }
 
 /* Sheet Music Staff Lines (Figma Node 523:2605 & 515:2580) */

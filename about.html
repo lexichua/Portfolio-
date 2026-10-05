@@ -195,10 +195,10 @@
         <div class="piano-widget-container" id="piano-component">
           <div class="piano-upright">
             
-            <!-- Top Backboard with 3D Opening Music Book -->
+            <!-- Top Backboard with Open Music Book -->
             <div class="piano-backboard">
               <div class="piano-book-wrapper" id="piano-book-wrapper">
-                <div class="piano-book is-closed" id="piano-book" title="Click to open or close book">
+                <div class="piano-book" id="piano-book">
                   
                   <!-- Open Sheet Music (Inside Pages Spread) -->
                   <div class="piano-sheet" id="piano-sheet" tabindex="0" role="region" aria-label="Sheet music displaying revealed sentence.">
@@ -223,16 +223,6 @@
                       <img src="assets/piano/sheet-bass-staff.svg" alt="Bass Clef Staff" width="439" height="38">
                     </div>
 
-                  </div>
-
-                  <!-- 3D Turning Front Cover (Lavender Music Book Cover) -->
-                  <div class="piano-book-cover" id="piano-book-cover" aria-hidden="true">
-                    <div class="book-cover-face book-cover-front">
-                      <img src="assets/piano/music_book_cover@2x.png" alt="Music Book Cover" class="book-cover-img" width="237" height="224">
-                    </div>
-                    <div class="book-cover-face book-cover-back">
-                      <div class="book-cover-back-inner"></div>
-                    </div>
                   </div>
 
                 </div>
@@ -328,76 +318,6 @@
       photoWrap.addEventListener('mouseenter', startAnimation);
       photoWrap.addEventListener('pointerenter', startAnimation);
       photoWrap.addEventListener('click', startAnimation);
-    }
-
-    // Music Book 3D Scroll Reveal: opens up when scrolled into view
-    const pianoSection = document.querySelector('.about-piano-section');
-    const pianoBook = document.getElementById('piano-book');
-    const pianoCover = document.getElementById('piano-book-cover');
-
-    function openMusicBook() {
-      if (!pianoBook || !pianoBook.classList.contains('is-closed')) return;
-
-      // Ensure cover is visible and ready to flip
-      if (pianoCover) {
-        pianoCover.classList.remove('is-removed');
-        pianoCover.style.display = 'block';
-      }
-
-      // Begin 3D flip animation (duration 0.85s)
-      pianoBook.classList.remove('is-closed');
-      pianoBook.classList.add('is-open');
-
-      // Once the flip completes, remove the cover completely so words & staves are 100% visible
-      let removed = false;
-      const removeCover = () => {
-        if (removed) return;
-        removed = true;
-        if (pianoCover && pianoBook.classList.contains('is-open')) {
-          pianoCover.classList.add('is-removed');
-          pianoCover.style.display = 'none';
-        }
-      };
-
-      if (pianoCover) {
-        pianoCover.addEventListener('transitionend', function onEnd(e) {
-          if (e.propertyName === 'transform') {
-            pianoCover.removeEventListener('transitionend', onEnd);
-            removeCover();
-          }
-        });
-      }
-
-      // Reliable fallback at 880ms
-      setTimeout(removeCover, 880);
-    }
-
-    if (pianoSection && pianoBook) {
-      let hasOpened = false;
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !hasOpened) {
-            hasOpened = true;
-            // Smooth delay as the piano rolls into comfortable view
-            setTimeout(() => {
-              openMusicBook();
-            }, 350);
-          }
-        });
-      }, {
-        threshold: 0.3
-      });
-
-      observer.observe(pianoSection);
-
-      // Also allow clicking book to open if not already open
-      pianoBook.addEventListener('click', (e) => {
-        if (pianoBook.classList.contains('is-closed')) {
-          openMusicBook();
-          hasOpened = true;
-        }
-      });
     }
   </script>
 </body>
