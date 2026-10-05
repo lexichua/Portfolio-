@@ -2318,8 +2318,9 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
 }
 
 .about-photo-wrapper {
-  width: 385px;
+  width: 428px;
   max-width: 100%;
+  aspect-ratio: 428 / 411;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -2328,7 +2329,8 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
 
 .about-photo {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
   border-radius: 20px;
 }
@@ -2347,8 +2349,9 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   }
   .about-photo-wrapper {
     width: 100%;
-    max-width: 385px;
+    max-width: 428px;
     height: auto;
+    aspect-ratio: 428 / 411;
   }
 }
 
