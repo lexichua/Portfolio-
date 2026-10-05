@@ -1350,7 +1350,8 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
 }
 
-.devx-hero-box img {
+.devx-hero-box img,
+.devx-hero-box video {
   width: 100%;
   height: 100%;
   object-fit: cover;
