@@ -258,6 +258,7 @@
   <script type="module" src="./script.js"></script>
   <script type="module">
     import { initPianoWidget } from './components/piano-widget/piano-widget.js';
+    import signatureSpriteUrl from './assets/LexiSignature_retina.webp';
     initPianoWidget('#piano-component');
 
     // Signature canvas animation (68 frames, 2x Retina, 100% transparent, pauses on end)
@@ -268,7 +269,6 @@
     if (photoWrap && sigWrap && sigCanvas) {
       const ctx = sigCanvas.getContext('2d');
       const sprite = new Image();
-      sprite.src = 'assets/LexiSignature_retina.webp';
 
       const frameW = 520;
       const frameH = 280;
@@ -278,10 +278,25 @@
       let currentFrame = 0;
       let animTimer = null;
       let isLoaded = false;
+      let pendingPlay = false;
 
       sprite.onload = () => {
         isLoaded = true;
+        if (pendingPlay) {
+          pendingPlay = false;
+          startAnimation();
+        }
       };
+
+      sprite.onerror = (e) => {
+        console.error('Error loading signature sprite from', signatureSpriteUrl, e);
+      };
+
+      // Set src after setting onload handler
+      sprite.src = signatureSpriteUrl;
+      if (sprite.complete && sprite.naturalWidth > 0) {
+        isLoaded = true;
+      }
 
       function drawFrame(frameIdx) {
         if (!isLoaded && !sprite.complete) return;
@@ -310,9 +325,9 @@
         }, 1000 / fps);
       }
 
-      photoWrap.addEventListener('mouseenter', () => {
-        startAnimation();
-      });
+      photoWrap.addEventListener('mouseenter', startAnimation);
+      photoWrap.addEventListener('pointerenter', startAnimation);
+      photoWrap.addEventListener('click', startAnimation);
     }
 
     // Music Book 3D Scroll Reveal: opens up when scrolled into view

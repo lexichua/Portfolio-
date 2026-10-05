@@ -125,21 +125,19 @@
   height: 224px;
   transform-origin: left center;
   transform-style: preserve-3d;
-  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 1.05s ease, opacity 0.4s 0.65s;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 1.05s ease;
   z-index: 15;
   cursor: pointer;
-  border-radius: 3px 6px 6px 3px;
 }
 
 .piano-book.is-closed .piano-book-cover {
   transform: rotateY(0deg);
-  opacity: 1;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .piano-book.is-open .piano-book-cover {
   transform: rotateY(-180deg);
-  opacity: 0;
   pointer-events: none;
   box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.12);
 }
@@ -148,15 +146,17 @@
 .book-cover-face {
   position: absolute;
   inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 3px 6px 6px 3px;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
   overflow: hidden;
 }
 
 .book-cover-front {
   z-index: 2;
-  transform: rotateY(0deg);
+  transform: rotateY(0deg) translateZ(2px);
+  -webkit-transform: rotateY(0deg) translateZ(2px);
+  border-radius: 3px 6px 6px 3px;
+  background: #b89fed;
 }
 
 .book-cover-img {
@@ -164,18 +164,26 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  transform: translateZ(1px);
+  -webkit-transform: translateZ(1px);
 }
 
+/* Inside of Cover - Pure Solid White */
 .book-cover-back {
-  transform: rotateY(180deg);
-  background: #fdfcfb;
+  z-index: 3;
+  transform: rotateY(180deg) translateZ(2px);
+  -webkit-transform: rotateY(180deg) translateZ(2px);
+  background: #ffffff !important;
+  border-radius: 6px 3px 3px 6px;
+  border-right: 1px solid #e8e8e8;
 }
 
 .book-cover-back-inner {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #f5f2ed 0%, #ffffff 85%);
-  box-shadow: inset -6px 0 14px rgba(0, 0, 0, 0.08);
+  background: #ffffff !important;
 }
 
 /* Sheet Music Staff Lines (Figma Node 523:2605 & 515:2580) */
