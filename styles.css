@@ -2378,8 +2378,8 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
 /* Signature Overlay (Crisp 2x Retina Spritesheet on Transparent Canvas) */
 .about-signature-wrapper {
   position: absolute;
-  right: 14px;
-  bottom: 16px;
+  right: 8px;
+  bottom: 32px;
   width: 250px;
   height: 135px;
   pointer-events: none;
@@ -2578,8 +2578,8 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
     margin-top: 100px;
   }
   .about-signature-wrapper {
-    right: 8px;
-    bottom: 12px;
+    right: 4px;
+    bottom: 24px;
     width: 200px;
     height: 108px;
   }
