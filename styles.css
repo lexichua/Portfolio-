@@ -1143,20 +1143,26 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 92px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  box-sizing: border-box;
 }
 
 .home-statement {
   font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400;
-  line-height: 1.32;
+  line-height: 1.29;
   color: #6b6c6e;
   text-align: left;
   letter-spacing: normal;
-  max-width: 1028px;
+  width: 100%;
+}
+
+.statement-break {
+  display: inline;
 }
 
 .name-gradient {
@@ -1167,7 +1173,7 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .home-bio {
-  margin-top: 28px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -1186,7 +1192,7 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 .featured-work-section {
   width: 100%;
   max-width: 1100px;
-  margin-top: 80px;
+  margin-top: clamp(80px, 10vw, 140px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1339,6 +1345,14 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
   .project-cards-grid {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .home-hero {
+    padding: 0;
+  }
+
+  .statement-break {
+    display: none;
   }
 
   .home-statement {
