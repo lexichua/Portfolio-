@@ -292,27 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Align Homepage Bio directly underneath "Lexi Chua"
-  const alignHomeBio = () => {
-    const nameEl = document.querySelector('.name-gradient');
-    const bioEl = document.querySelector('.home-bio');
-    const heroEl = document.querySelector('.home-hero');
-    if (nameEl && bioEl && heroEl) {
-      const nameRect = nameEl.getBoundingClientRect();
-      const heroRect = heroEl.getBoundingClientRect();
-      const offset = nameRect.left - heroRect.left;
-      if (offset > 0) {
-        bioEl.style.paddingLeft = `${Math.round(offset)}px`;
-      }
-    }
-  };
+  // 7. Homepage Bio alignment is handled cleanly via CSS
 
-  alignHomeBio();
-  window.addEventListener('resize', alignHomeBio, { passive: true });
-  window.addEventListener('load', alignHomeBio);
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(alignHomeBio);
-  }
 
   // 8. Play Page Category Tag Switcher
   const playTags = document.querySelectorAll('.play-tag');
