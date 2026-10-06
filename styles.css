@@ -61,6 +61,9 @@ html {
   font-size: 16px;
   line-height: 1.4;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   cursor: url("assets/custom_cursor.png") 0 0, auto;
   cursor: -webkit-image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, auto;
   cursor: image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, auto;
@@ -71,6 +74,8 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   background-color: #2c2c2c;
   cursor: url("assets/custom_cursor.png") 0 0, auto;
   cursor: -webkit-image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, auto;
@@ -78,7 +83,7 @@ body {
   cursor: url("assets/custom_cursor.svg") 0 0, auto;
 }
 
-a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, input, select {
+a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mobile-back-link, input, select {
   cursor: url("assets/custom_cursor.png") 0 0, pointer;
   cursor: -webkit-image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, pointer;
   cursor: image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, pointer;
@@ -195,8 +200,8 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 9999;
 }
@@ -389,6 +394,30 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
 .back-link:hover {
   background-color: #f5f5f7;
   color: var(--color-primary);
+}
+
+.mobile-back-link {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-caption);
+  text-decoration: none;
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 400;
+  padding: 4px 10px;
+  margin-left: -10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+  width: fit-content;
+  background-color: transparent;
+  transition: color 0.15s ease, background-color 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease;
+}
+
+.mobile-back-link:hover {
+  background-color: #f5f5f7;
+  color: var(--color-primary);
+  transform: translateX(-3px);
 }
 
 .toc-link {
@@ -1246,12 +1275,140 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
 }
 
 @media (max-width: 900px) {
+  /* Hide side nav in mobile case studies */
+  .side-nav-wrapper {
+    display: none !important;
+  }
+
+  /* Show mobile back to projects link on top of header */
+  .mobile-back-link {
+    display: inline-flex !important;
+  }
+
+  /* Containers & Padding */
+  .page-container {
+    padding: 130px 20px 80px 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .home-container {
+    padding: 130px 20px 80px 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .main-article {
+    gap: 80px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
   .project-cards-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+
   .home-statement {
     font-size: 28px;
+  }
+
+  /* Bike Pantry Case Study Mobile Grids & Media */
+  .hero-video-box {
+    height: auto;
+    aspect-ratio: 856 / 489;
+    width: 100%;
+  }
+
+  .project-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px 0 10px 0;
+  }
+
+  .context-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .stats-cards-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .stat-card {
+    height: auto;
+    min-height: 160px;
+    padding: 20px 22px;
+  }
+
+  .interview-cards-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cycle-diagram-container {
+    transform: scale(0.85);
+    transform-origin: center center;
+    margin: -30px auto;
+  }
+
+  .split-header-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .pillars-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pillar-card {
+    height: auto;
+    min-height: 180px;
+  }
+
+  .showcase-banner {
+    height: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 380px;
+    width: 100%;
+  }
+
+  .showcase-banner img {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .conclusion-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .froyo-photo-box img {
+    height: auto;
+    aspect-ratio: 340 / 257;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-meta-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .cycle-diagram-container {
+    transform: scale(0.72);
+    transform-origin: center center;
+    margin: -60px auto;
   }
 }
 
@@ -2610,12 +2767,15 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   min-height: 100vh;
   box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Spacer in scroll flow that determines how much the user scrolls to reveal the footer */
 .footer-reveal-spacer {
   position: relative;
   width: 100%;
+  max-width: 100%;
   height: 378px; /* Dynamic via ResizeObserver */
   pointer-events: none;
   visibility: hidden;
@@ -2626,7 +2786,10 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   position: fixed;
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   min-height: 378px;
   background-color: #2c2c2c;
   z-index: 1; /* Sits behind .site-main-wrapper */
