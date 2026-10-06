@@ -71,7 +71,7 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background-color: var(--color-white);
+  background-color: #2c2c2c;
   cursor: url("assets/custom_cursor.png") 0 0, auto;
   cursor: -webkit-image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, auto;
   cursor: image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, auto;
@@ -2598,6 +2598,172 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, inp
   }
 }
 
+/* ==========================================================================
+   Behind-the-Page Reveal Footer (Figma Frame 63 - Node 564:2776)
+   ========================================================================== */
 
+/* Main content wrapper sits on top like a paper sheet */
+.site-main-wrapper {
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-white);
+  min-height: 100vh;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+  width: 100%;
+}
 
+/* Spacer in scroll flow that determines how much the user scrolls to reveal the footer */
+.footer-reveal-spacer {
+  position: relative;
+  width: 100%;
+  height: 378px; /* Dynamic via ResizeObserver */
+  pointer-events: none;
+  visibility: hidden;
+}
 
+/* Footer sits fixed at the viewport bottom behind the main content sheet */
+.site-reveal-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 378px;
+  background-color: #2c2c2c;
+  z-index: 1; /* Sits behind .site-main-wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 40px 0;
+  pointer-events: auto;
+}
+
+.site-footer-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 7.6vw, 110px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(60px, 14vw, 220px);
+  box-sizing: border-box;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: url("assets/custom_cursor.png") 0 0, pointer;
+  cursor: -webkit-image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, pointer;
+  cursor: image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, pointer;
+  cursor: url("assets/custom_cursor.svg") 0 0, pointer;
+  transition: opacity 0.2s ease;
+}
+
+.footer-brand:hover {
+  opacity: 0.92;
+}
+
+.footer-logo {
+  width: 52px;
+  height: 52px;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-brand:hover .footer-logo {
+  transform: rotate(15deg) scale(1.08);
+}
+
+.footer-name {
+  font-family: var(--font-main);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.footer-links-group {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(40px, 6vw, 90px);
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-link {
+  font-family: var(--font-main);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  cursor: url("assets/custom_cursor.png") 0 0, pointer;
+  cursor: -webkit-image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, pointer;
+  cursor: image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, pointer;
+  cursor: url("assets/custom_cursor.svg") 0 0, pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #BFA2F8;
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .site-footer-inner {
+    gap: 80px;
+  }
+  .footer-name {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 820px) {
+  .site-reveal-footer {
+    min-height: 320px;
+    padding: 50px 0;
+  }
+  .site-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 36px;
+    padding: 0 32px;
+  }
+  .footer-name {
+    font-size: 40px;
+  }
+  .footer-links-group {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer-inner {
+    padding: 0 20px;
+  }
+  .footer-name {
+    font-size: 32px;
+  }
+  .footer-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .footer-links-group {
+    gap: 40px;
+  }
+  .footer-link {
+    font-size: 18px;
+  }
+}

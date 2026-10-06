@@ -570,4 +570,49 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // 5. Site Reveal Footer (Behind-the-Page Reveal)
+  const revealFooter = document.getElementById('site-reveal-footer');
+  const footerSpacer = document.querySelector('.footer-reveal-spacer');
+  const bottomFade = document.querySelector('.viewport-fade-bottom');
+  const sideNav = document.querySelector('.side-nav-wrapper');
+
+  if (revealFooter && footerSpacer) {
+    const updateSpacerHeight = () => {
+      const footerH = revealFooter.offsetHeight;
+      if (footerH > 0) {
+        footerSpacer.style.height = `${footerH}px`;
+      }
+    };
+
+    updateSpacerHeight();
+    window.addEventListener('resize', updateSpacerHeight, { passive: true });
+    window.addEventListener('load', updateSpacerHeight, { passive: true });
+
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(updateSpacerHeight);
+      ro.observe(revealFooter);
+    }
+
+    // Smoothly fade out viewport bottom gradient and side TOC when footer is revealed
+    if (window.IntersectionObserver) {
+      const footerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const isRevealing = entry.isIntersecting;
+          if (bottomFade) {
+            bottomFade.style.opacity = isRevealing ? '0' : '1';
+            bottomFade.style.transition = 'opacity 0.25s ease';
+          }
+          if (sideNav) {
+            sideNav.style.opacity = isRevealing ? '0' : '1';
+            sideNav.style.pointerEvents = isRevealing ? 'none' : 'auto';
+            sideNav.style.transition = 'opacity 0.25s ease';
+          }
+        });
+      }, {
+        threshold: 0.05
+      });
+      footerObserver.observe(footerSpacer);
+    }
+  }
 });
