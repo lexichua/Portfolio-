@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fenix&family=Figtree:ital,wght@0,300..900;1,300..900&family=Source+Code+Pro:ital,wght@0,300..900;1,300..900&display=swap');
 @import './components/piano-widget/piano-widget.css';
 
 /* ==========================================================================
@@ -7,6 +8,8 @@
 
 :root {
   --font-main: 'Figtree', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-header: 'Fenix', Georgia, serif;
+  --font-mono: 'Source Code Pro', Menlo, Monaco, Consolas, "Courier New", monospace;
   --font-rounded: 'SF Pro Rounded', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Colors */
@@ -81,6 +84,12 @@ body {
   cursor: -webkit-image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, auto;
   cursor: image-set(url("assets/custom_cursor.png") 1x, url("assets/custom_cursor_2x.png") 2x) 0 0, auto;
   cursor: url("assets/custom_cursor.svg") 0 0, auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+  font-weight: 400;
+  letter-spacing: normal;
 }
 
 a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mobile-back-link, input, select {
@@ -473,24 +482,30 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .section-tag {
+  font-family: var(--font-mono);
   color: var(--color-primary);
   font-size: 16px;
   font-weight: 400; /* Regular weight in Figma */
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  line-height: 1.29;
   margin-bottom: -10px;
 }
 
 .section-title {
+  font-family: var(--font-header);
   font-size: 32px;
   font-weight: 400; /* Regular weight in Figma */
   color: var(--color-text-title);
   line-height: 1.25;
+  letter-spacing: normal;
 }
 
 .section-title.large {
+  font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400; /* Regular weight in Figma */
+  letter-spacing: normal;
 }
 
 .section-body {
@@ -526,9 +541,11 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .hero-title {
+  font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400; /* Regular weight in Figma */
   color: var(--color-primary); /* #40a09e */
+  letter-spacing: normal;
 }
 
 .hero-subtitle {
@@ -574,6 +591,7 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .meta-column-header {
+  font-family: var(--font-main);
   font-size: 20px;
   color: var(--color-primary);
   font-weight: 400;
@@ -662,9 +680,11 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .callout-box h3 {
+  font-family: var(--font-header);
   font-size: 32px;
   font-weight: 400; /* Regular weight in Figma */
   color: var(--color-text-title);
+  letter-spacing: normal;
 }
 
 .callout-box p {
@@ -683,10 +703,12 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .callout-box.key-takeaway .callout-tag {
+  font-family: var(--font-mono);
   font-size: 16px;
   font-weight: 700; /* Bold in Figma */
   color: #2c2c2c;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .callout-box.key-takeaway p {
@@ -954,9 +976,11 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .pillar-title {
+  font-family: var(--font-header);
   font-size: 24px;
   font-weight: 400; /* Regular weight in Figma */
   color: var(--color-text-title);
+  letter-spacing: normal;
 }
 
 .pillar-desc {
@@ -1124,13 +1148,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .home-statement {
-  font-family: var(--font-main);
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 1.28;
+  font-family: var(--font-header);
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.32;
   color: #6b6c6e;
   text-align: center;
-  letter-spacing: -0.01em;
+  letter-spacing: normal;
 }
 
 .name-gradient {
@@ -1174,12 +1198,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .featured-work-title {
-  font-family: var(--font-main);
+  font-family: var(--font-mono);
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: #898691;
   text-transform: uppercase;
+  line-height: 1.29;
 }
 
 .featured-arrow {
@@ -1254,11 +1279,12 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .card-title {
-  font-family: var(--font-main);
+  font-family: var(--font-header);
   font-size: 24px;
   font-weight: 400;
   color: #707079;
   line-height: 1.29;
+  letter-spacing: normal;
   transition: color 0.2s ease;
 }
 
@@ -1451,11 +1477,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .devx-title {
+  font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400;
   color: var(--color-devx-blue);
   line-height: 1.2;
   margin: 0;
+  letter-spacing: normal;
 }
 
 .devx-subtitle {
@@ -1529,6 +1557,7 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .devx-meta-grid .meta-column-header {
+  font-family: var(--font-main);
   font-size: 20px;
   color: var(--color-devx-blue);
   font-weight: 400;
@@ -1576,11 +1605,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .devx-about-title {
+  font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400;
   color: #000000;
   line-height: 1.2;
   margin: 0;
+  letter-spacing: normal;
 }
 
 .devx-about-content {
@@ -1644,12 +1675,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .zoox-title {
+  font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400;
   color: var(--color-zoox-teal);
   line-height: 1.2;
   margin: 0;
-  letter-spacing: 0.02em;
+  letter-spacing: normal;
 }
 
 .zoox-subtitle {
@@ -1692,6 +1724,7 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .zoox-meta-grid .meta-column-header {
+  font-family: var(--font-main);
   font-size: 20px;
   color: var(--color-zoox-teal); /* #40a09e */
   font-weight: 400;
@@ -1721,11 +1754,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .zoox-overview-title {
+  font-family: var(--font-header);
   font-size: 32px;
   font-weight: 400;
   color: #000000;
   line-height: 1.25;
   margin: 0;
+  letter-spacing: normal;
 }
 
 .zoox-overview-content {
@@ -1780,11 +1815,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .play-title {
+  font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400;
   color: #000000;
   line-height: 1.2;
   margin: 0;
+  letter-spacing: normal;
 }
 
 .play-tag-bar {
@@ -2451,13 +2488,13 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .about-heading {
-  font-family: var(--font-main);
+  font-family: var(--font-header);
   font-size: 32px;
   font-weight: 400;
   color: #000000;
   line-height: 1.25;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: normal;
 }
 
 .about-bio {
@@ -2591,12 +2628,12 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .experience-title {
-  font-family: var(--font-main);
+  font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400;
   color: #000000;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: normal;
 }
 
 /* Available for summer 2027 badge */
@@ -2687,13 +2724,14 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .experience-subtitle {
-  font-family: var(--font-main);
+  font-family: var(--font-mono);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
   color: #000000;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  letter-spacing: -0.01em;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* ==========================================================================
@@ -2705,12 +2743,12 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
 }
 
 .piano-section-title {
-  font-family: var(--font-main);
+  font-family: var(--font-header);
   font-size: 36px;
   font-weight: 400;
   color: #000000;
   margin-bottom: 32px;
-  letter-spacing: -0.01em;
+  letter-spacing: normal;
 }
 
 @media (max-width: 860px) {
