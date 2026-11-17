@@ -122,15 +122,27 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
   opacity: 1;
 }
 
+.custom-cursor.is-hovering {
+  mix-blend-mode: multiply;
+}
+
 .custom-cursor-shape {
   width: 20px;
   height: 20px;
   background-color: #BFA2F8;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  transition: border-radius 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.2s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: border-radius, transform;
+  will-change: width, height, border-radius, transform;
+}
+
+/* On Hover over Interactive Element: Expand dot and apply multiply blend mode */
+.custom-cursor.is-hovering .custom-cursor-shape {
+  width: 38px;
+  height: 38px;
 }
 
 /* On Click (Mousedown): Morph smoothly into pointed circle with sharp top-left tip */

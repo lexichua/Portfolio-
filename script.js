@@ -258,10 +258,39 @@ document.addEventListener('DOMContentLoaded', () => {
     bottomObserver.observe(conclusionSection);
   }
 
-  // 6. Custom Morphing Cursor Controller (Circle in idle -> Pointed on click)
+  // 6. Custom Morphing Cursor Controller (Circle in idle -> Expanded + Multiply on hover -> Pointed on click)
   const cursorWrapper = document.getElementById('custom-cursor');
   if (cursorWrapper) {
     document.documentElement.classList.add('has-custom-cursor');
+
+    const INTERACTIVE_SELECTOR = [
+      'a',
+      'button',
+      '[role="button"]',
+      'input',
+      'select',
+      'textarea',
+      'label',
+      'summary',
+      '.nav-pill',
+      '.nav-logo-box',
+      '.home-project-card',
+      '.toc-link',
+      '.back-link',
+      '.mobile-back-link',
+      '.play-tag',
+      '.music-track-cover',
+      '.music-play-btn',
+      '.music-progress-wrapper',
+      '.dock-action-btn',
+      '.dock-progress-box',
+      '.game-card-link',
+      '.about-photo-wrapper',
+      '.contact-icon-btn',
+      '.piano-key',
+      '#piano-sheet',
+      '.zoox-hover-preview-trigger'
+    ].join(', ');
 
     let mouseX = -100;
     let mouseY = -100;
@@ -273,6 +302,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!cursorWrapper.classList.contains('is-visible')) {
         cursorWrapper.classList.add('is-visible');
       }
+      const isInteractive = Boolean(e.target && e.target.closest && e.target.closest(INTERACTIVE_SELECTOR));
+      cursorWrapper.classList.toggle('is-hovering', isInteractive);
     }, { passive: true });
 
     window.addEventListener('mousedown', () => {
