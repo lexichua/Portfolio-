@@ -30,14 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Intersection Observer for Left Sidebar TOC highlighting
   const sections = document.querySelectorAll('main section, header.hero-header');
   const tocLinks = document.querySelectorAll('.side-toc .toc-link');
+  const hasHeroTocLink = Array.from(tocLinks).some(link => link.getAttribute('href') === '#hero');
 
   const tocObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         let id = entry.target.getAttribute('id');
-        // Overview and Context are part of the Bike Pantry section (#hero)
-        if (id === 'overview' || id === 'context') {
+        // Overview and Context are part of the Bike Pantry section (#hero) when #hero is in TOC
+        if (hasHeroTocLink && (id === 'overview' || id === 'context')) {
           id = 'hero';
+        } else if (!hasHeroTocLink && id === 'hero' && tocLinks.length > 0) {
+          id = tocLinks[0].getAttribute('href').replace('#', '');
         }
         tocLinks.forEach(link => {
           if (link.getAttribute('href') === `#${id}`) {
@@ -56,11 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sections.forEach(section => tocObserver.observe(section));
 
-  // Ensure top-of-page explicitly highlights Bike Pantry
+  // Ensure top-of-page explicitly highlights the first TOC item (#hero or #overview)
   const updateTopActive = () => {
-    if (window.scrollY < 200) {
+    if (window.scrollY < 200 && tocLinks.length > 0) {
+      const topTargetHref = hasHeroTocLink ? '#hero' : tocLinks[0].getAttribute('href');
       tocLinks.forEach(link => {
-        if (link.getAttribute('href') === '#hero') {
+        if (link.getAttribute('href') === topTargetHref) {
           link.classList.add('active');
         } else {
           link.classList.remove('active');

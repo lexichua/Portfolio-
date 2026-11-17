@@ -8,6 +8,7 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         about: resolve(import.meta.dirname, 'about.html'),
+        bruinwalk: resolve(import.meta.dirname, 'bruinwalk.html'),
         bikePantry: resolve(import.meta.dirname, 'bike-pantry.html'),
         devx: resolve(import.meta.dirname, 'devx.html'),
         play: resolve(import.meta.dirname, 'play.html'),

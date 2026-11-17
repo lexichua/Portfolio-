@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bruinwalk Admin Dashboard — Lexi Chua Case Study</title>
+  <meta name="description" content="Designed Bruinwalk's internal admin dashboard so non-technical staff can merge duplicate professor records and manage ads without writing code.">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fenix&family=Figtree:ital,wght@0,300..900;1,300..900&family=Source+Code+Pro:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    ::selection,
+    *::selection {
+      background-color: #EDE4FF !important;
+      color: #7742E1 !important;
+    }
+    ::-moz-selection,
+    *::-moz-selection {
+      background-color: #EDE4FF !important;
+      color: #7742E1 !important;
+    }
+  </style>
+</head>
+<body class="bruinwalk-page">
+
+  <!-- Custom Morphing Cursor Element -->
+  <div id="custom-cursor" class="custom-cursor" aria-hidden="true">
+    <div class="custom-cursor-shape"></div>
+  </div>
+
+  <!-- Subtle Top & Bottom Viewport Edge Fades -->
+  <div class="viewport-fade-top" aria-hidden="true"></div>
+  <div class="viewport-fade-bottom" aria-hidden="true"></div>
+
+  <!-- Top Floating Navigation Bar (Universal across site) -->
+  <div class="top-header-wrapper" id="top-nav-wrapper">
+    <nav class="floating-nav" id="floating-nav" aria-label="Main Navigation">
+      <div class="nav-wing nav-wing-left">
+        <a href="index.html" class="nav-pill">Work</a>
+        <a href="play.html" class="nav-pill">Play</a>
+      </div>
+
+      <a href="index.html" class="nav-logo-box" id="nav-logo-box" aria-label="Return to home page">
+        <img src="assets/logo_union.svg" id="nav-logo-img" alt="Lexi Chua Logo" width="40" height="40">
+      </a>
+
+      <div class="nav-wing nav-wing-right">
+        <a href="about.html" class="nav-pill">About</a>
+        <a href="https://drive.google.com/file/d/10KdwpGgJ-M44zvtkTwDR2CIg0nxfM8D4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill">Resume</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Site Main Content Wrapper (Slides up to reveal footer underneath) -->
+  <div class="site-main-wrapper">
+    <div class="page-container">
+    
+    <!-- Left Sticky Sidebar Table of Contents -->
+    <aside class="side-nav-wrapper" aria-label="Case Study Table of Contents">
+      <nav class="side-toc">
+        <a href="index.html" class="back-link">
+          <span aria-hidden="true">&larr;</span> Back to Projects
+        </a>
+        <a href="#overview" class="toc-link active">Overview</a>
+        <a href="#professor-merge" class="toc-link">Professor Merge</a>
+        <a href="#understanding-users" class="toc-link">Understanding Users</a>
+        <a href="#solution" class="toc-link">Solution</a>
+        <a href="#advertisement-management" class="toc-link">Advertisement Management</a>
+        <a href="#ad-solution" class="toc-link">Ad Solution</a>
+        <a href="#results-reflection" class="toc-link">Results &amp; Reflection</a>
+      </nav>
+    </aside>
+
+    <!-- Main Case Study Content -->
+    <main class="main-article bruinwalk-article">
+      
+      <!-- HERO SECTION -->
+      <header class="section hero-header bruinwalk-header" id="hero">
+        <div class="reveal-chunk">
+          <a href="index.html" class="mobile-back-link" aria-label="Back to Projects">
+            <span aria-hidden="true">&larr;</span> Back to Projects
+          </a>
+          <h1 class="hero-title bruinwalk-title">Bruinwalk Admin Dashboard</h1>
+          <p class="hero-subtitle bruinwalk-subtitle">
+            Designed Bruinwalk’s internal admin dashboard so non-technical staff can merge duplicate professor records and manage ads without writing code.
+          </p>
+        </div>
+        
+        <div class="hero-video-box bruinwalk-hero-box reveal-chunk">
+          <video autoplay loop muted playsinline poster="assets/bruinwalk_hero.png">
+            <source src="assets/BruinwalkThumbnail.mp4" type="video/mp4">
+            <img src="assets/bruinwalk_hero.png" alt="Bruinwalk Admin Dashboard preview">
+          </video>
+        </div>
+
+        <!-- Project Metadata Grid -->
+        <div class="project-meta-grid bruinwalk-meta-grid reveal-chunk">
+          <div class="meta-column">
+            <h2 class="meta-column-header">Role</h2>
+            <div class="meta-column-content">
+              <p>UI/UX Designer</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Skills</h2>
+            <div class="meta-column-content">
+              <p>Visual Design</p>
+              <p>UX Research</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Team</h2>
+            <div class="meta-column-content">
+              <p>2 Designers</p>
+              <p>2 Developers</p>
+            </div>
+          </div>
+          <div class="meta-column">
+            <h2 class="meta-column-header">Timeline</h2>
+            <div class="meta-column-content">
+              <p>Mar 2026 -</p>
+              <p>May 2026</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- OVERVIEW SECTION -->
+      <section class="section bruinwalk-section" id="overview">
+        <div class="reveal-chunk">
+          <h2 class="section-title">Overview</h2>
+          <div class="section-body bruinwalk-body">
+            <p>
+              Bruinwalk is the primary class-planning platform for thousands of UCLA students. As a UI/UX Designer, I worked in the creation of its new internal admin dashboard, building management systems for advertisements and professor data.
+            </p>
+            <p>
+              Bruinwalk serves thousands of active students, and the internal tools used to maintain it were not sufficient in keeping up with student reviews and new data because site management <span class="bold-highlight">required technical knowledge.</span>
+            </p>
+            <p>
+              Because the system was so <span class="bold-highlight">high friction</span>, it <span class="bold-highlight">cost a lot of time</span> for the administrative team.
+            </p>
+          </div>
+        </div>
+
+        <!-- Blue Feature Callout Banner -->
+        <div class="bruinwalk-banner-card reveal-chunk">
+          <p class="bruinwalk-banner-title">
+            I worked on two features for this project. The following section will go over the <span class="bold-highlight">Professor Merge Feature.</span>
+          </p>
+          <a href="#advertisement-management" class="bruinwalk-banner-link">Skip to Advertisement Management</a>
+        </div>
+      </section>
+
+      <!-- PROFESSOR MERGE FEATURE SECTION -->
+      <section class="section bruinwalk-section" id="professor-merge">
+        <div class="reveal-chunk">
+          <h2 class="section-title">Professor Merge Feature</h2>
+          <div class="section-body bruinwalk-body">
+            <p>
+              The feature that was needed was an admin tool to <span class="bold-highlight">merge two professor variables</span> into one instance. Many users complained that the site often had two different instances of the same professor causing reviews to be fragmented.
+            </p>
+          </div>
+        </div>
+
+        <!-- Merge Comparison Diagram -->
+        <div class="bruinwalk-merge-comparison reveal-chunk">
+          <div class="bruinwalk-merge-col">
+            <div class="bruinwalk-merge-img-wrap before-img">
+              <img src="assets/bruinwalk_merge_before.png" alt="Duplicate professor records for Nicholas Ichien and Nick Ichien" loading="lazy">
+            </div>
+            <p class="bruinwalk-merge-caption">Nicholas Ichien also has an instance of Nick Ichien in the site.</p>
+          </div>
+
+          <div class="bruinwalk-merge-arrow" aria-hidden="true">
+            <svg width="46" height="16" viewBox="0 0 46 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 8H44M44 8L37 1M44 8L37 15" stroke="#5e5e5e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="bruinwalk-merge-col">
+            <div class="bruinwalk-merge-img-wrap after-img">
+              <img src="assets/bruinwalk_merge_after.png" alt="Combined single professor record for Nicholas Ichien" loading="lazy">
+            </div>
+            <p class="bruinwalk-merge-caption">This tool will combine both Instances of Professor Ichien into one.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- UNDERSTANDING THE USERS SECTION -->
+      <section class="section bruinwalk-section" id="understanding-users">
+        <div class="reveal-chunk">
+          <h2 class="section-title">Understanding the Users</h2>
+          <div class="section-body bruinwalk-body">
+            <p>
+              Before starting, I identified some key <span class="bold-highlight">pain points</span> through <span class="bold-highlight">interviewing</span> the current site managers and watching them talk through their current flow. Here are some key takeaways.
+            </p>
+          </div>
+        </div>
+
+        <div class="bruinwalk-subsection reveal-chunk">
+          <h3 class="bruinwalk-subheading">Insights</h3>
+          <div class="section-body bruinwalk-body bruinwalk-indented-block">
+            <p>
+              <span class="bold-highlight">High Risk of Error:</span> Admins hesitated to update or merge professor records due to a lack of clear safeguards, causing them to fear making irreversible changes on the live site.
+            </p>
+            <p>
+              <span class="bold-highlight">Stale Data:</span> Because the workflow was high-friction, updates were delayed, leading to outdated professor pages.
+            </p>
+          </div>
+          <div class="section-body bruinwalk-body" style="margin-top: 28px;">
+            <p>
+              This feature was a <span class="bold-highlight">high risk</span> feature because merging the two instances together could potentially erase a lot of old data. However, the merging system would also need to be <span class="bold-highlight">quick</span> because there are a lot of professors to get through since the site gets filled with double instances.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESIGNING A SOLUTION & PROTOTYPES SECTION -->
+      <section class="section bruinwalk-section" id="solution">
+        <div class="reveal-chunk">
+          <h2 class="section-title">Designing a Solution</h2>
+          <div class="section-body bruinwalk-body">
+            <p>Because of these considerations I focused my design on:</p>
+            <ul class="bruinwalk-bullet-list">
+              <li>
+                <span class="bold-highlight">Clear Interaction labeling</span>, making sure users know the exact downstream impact of their changes before confirming.
+              </li>
+              <li>
+                <span class="bold-highlight">A fast four step process</span> to make sure users can update records quickly, while introducing just enough intentional friction to prevent accidental changes.
+              </li>
+              <li>
+                <span class="bold-highlight">Contextual Safeguards:</span> Implementing visual confirmation states before executing data changes, giving users confidence and immediate feedback when handling high-stakes functions.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Prototypes -->
+        <div class="bruinwalk-prototypes-group">
+          <div class="reveal-chunk">
+            <h2 class="section-title" style="margin-bottom: 32px;">Prototypes</h2>
+
+            <!-- Prototype 1 -->
+            <div class="bruinwalk-proto-block">
+              <h3 class="bruinwalk-subheading">Select Two or More Professors to Merge</h3>
+              <p class="bruinwalk-proto-desc">
+                In order to merge professors, users need to select the professors they want to merge which will then activate the merge tool.
+              </p>
+              <div class="bruinwalk-media-frame">
+                <img src="assets/bruinwalk_proto_select.png" alt="Selecting two or more professors in the Bruinwalk Admin Dashboard table" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <!-- Prototype 2 -->
+          <div class="bruinwalk-proto-block reveal-chunk">
+            <h3 class="bruinwalk-subheading">Merge Mode</h3>
+            <p class="bruinwalk-proto-desc">
+              Before the professors merge is finalized, users will see a panel that guides them through the process.
+            </p>
+            <div class="bruinwalk-media-frame">
+              <img src="assets/bruinwalk_proto_merge_mode.png" alt="Merge Mode side panel guiding the user through merging professors" loading="lazy">
+            </div>
+          </div>
+
+          <!-- Prototype 3 -->
+          <div class="bruinwalk-proto-block reveal-chunk">
+            <h3 class="bruinwalk-subheading">Merge Flow</h3>
+            <p class="bruinwalk-proto-desc">
+              Users first select a primary professor instance, next the tool presents a visual confirmation of the outcome, then the user must check a box to ensure they are fully certain about their decision. Finally the user confirms the merge, and the two instances become combined throughout the site.
+            </p>
+            <div class="bruinwalk-media-frame">
+              <img src="assets/bruinwalk_proto_merge_flow.png" alt="Three-step Merge Professors confirmation flow showing primary selection, preview, and checkbox safeguard" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Blue Transition Banner -->
+        <div class="bruinwalk-banner-card reveal-chunk">
+          <p class="bruinwalk-banner-title">
+            The next section is about the <span class="bold-highlight">Advertisement Management Feature</span>
+          </p>
+          <a href="#professor-merge" class="bruinwalk-banner-link">Back to Professor Merge Feature</a>
+        </div>
+      </section>
+
+      <!-- ADVERTISEMENT MANAGEMENT FEATURE SECTION -->
+      <section class="section bruinwalk-section" id="advertisement-management">
+        <div class="reveal-chunk">
+          <h2 class="section-title">Advertisement Management Feature</h2>
+          <div class="section-body bruinwalk-body">
+            <p>
+              For this project I was tasked with designing an interface for managing ad monetization for the Bruinwalk. Bruinwalk runs off of Google AdSense which requires any ad updates to be made by editing the website’s HTML.
+            </p>
+            <p>
+              This system runs into the same issue as the professors page; most Bruinwalk <span class="bold-highlight">admins do not come from a technical background.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- AD DESIGNING A SOLUTION SECTION -->
+      <section class="section bruinwalk-section" id="ad-solution">
+        <div class="reveal-chunk">
+          <h2 class="section-title">Designing a Solution</h2>
+          <div class="section-body bruinwalk-body">
+            <p>
+              This feature required a quick turn around, so I jumped straight into Figma. I made sure to check in with users for feedback <span class="bold-highlight">as I was designing.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Advertisement Dashboard -->
+        <div class="bruinwalk-proto-block reveal-chunk">
+          <h3 class="bruinwalk-subheading">Advertisement Dashboard</h3>
+          <p class="bruinwalk-proto-desc">
+            I created a page to see all of the active advertisements in one place. Each advertisement has its own row where I chose to let users toggle advertisements on and off, preview, choose the type of ad displayed, and edit the ad.
+          </p>
+          <div class="bruinwalk-media-frame">
+            <img src="assets/bruinwalk_ad_dashboard.png" alt="Bruinwalk Advertisement Dashboard showing active ad blocks in rows with status toggles, preview, ad type selector, and edit actions" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Other Dashboard Explorations -->
+        <div class="bruinwalk-proto-block reveal-chunk">
+          <h3 class="bruinwalk-subheading">Other Dashboard Explorations</h3>
+          <p class="bruinwalk-proto-desc">
+            Before settling on the final design, I <span class="bold-highlight">explored a card-based layout</span>. Each ad block became a small, expandable card, which I hoped would make the page feel less informationally dense. I ultimately chose the row view for two reasons: expanding cards added an extra click to every task, and collapsed cards didn’t give first-time users enough context to understand what each ad block was.
+          </p>
+          <div class="two-column-images bruinwalk-cards-exploration">
+            <div class="image-caption-container">
+              <img src="assets/bruinwalk_ad_collapsed.png" alt="Collapsed card layout exploration for advertisements" loading="lazy">
+              <p class="bruinwalk-card-caption">Collapsed Card</p>
+            </div>
+            <div class="image-caption-container">
+              <img src="assets/bruinwalk_ad_expanded.png" alt="Expanded card layout exploration for advertisements" loading="lazy">
+              <p class="bruinwalk-card-caption">Expanded Card</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Editing Modals -->
+        <div class="bruinwalk-proto-block reveal-chunk">
+          <h3 class="bruinwalk-subheading">Editing Modals</h3>
+          <p class="bruinwalk-proto-desc">
+            I designed custom ad editing modals with a focus on making changing and editing ads as low friction as possible for a non-technical user
+          </p>
+
+          <div class="bruinwalk-modal-flow">
+            <p class="bruinwalk-flow-label">Google Ads Flow</p>
+            <div class="bruinwalk-media-frame">
+              <img src="assets/bruinwalk_google_ads_flow.png" alt="Google Ads script editing modal flow" loading="lazy">
+            </div>
+          </div>
+
+          <div class="bruinwalk-modal-flow" style="margin-top: 32px;">
+            <p class="bruinwalk-flow-label">Custom Ads Flow</p>
+            <div class="bruinwalk-media-frame">
+              <img src="assets/bruinwalk_custom_ads_flow.png" alt="Custom Ads editing modal flow" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS AND REFLECTION SECTION -->
+      <section class="section bruinwalk-section" id="results-reflection">
+        <div class="reveal-chunk">
+          <h2 class="section-title">Results and Reflection</h2>
+          <div class="section-body bruinwalk-body" style="margin-top: 16px;">
+            <p>
+              Building these tools taught me that good design is good translation. By hiding Google AdSense’s HTML requirements and the database risks of merging records behind intuitive interfaces, I helped a non-technical admin team do highly technical work with confidence. Internal tools should be designed with the same empathy as student facing products. Admins shouldn’t have to feel like they are lacking a skill. Once the dashboard showed admins exactly what they needed, they could do work they used to avoid.
+            </p>
+          </div>
+        </div>
+
+        <!-- Stay Tuned Blue Banner -->
+        <div class="bruinwalk-banner-card stay-tuned-banner reveal-chunk">
+          <p class="bruinwalk-banner-title bold-highlight">Stay tuned for more!</p>
+          <p class="bruinwalk-banner-subtext">
+            I am currently working on an exciting design system overhaul across the entire platform!
+          </p>
+        </div>
+      </section>
+
+    </main>
+    </div>
+  </div>
+
+  <!-- Footer Reveal Spacer -->
+  <div class="footer-reveal-spacer" aria-hidden="true"></div>
+
+  <!-- Reveal Footer Behind Page (Figma Frame 63 - Node 564:2776) -->
+  <footer class="site-reveal-footer" id="site-reveal-footer" aria-label="Site Footer">
+    <div class="site-footer-inner">
+      <a href="index.html" class="footer-brand" aria-label="Lexi Chua - Back to Home">
+        <img src="assets/footer_logo.svg" alt="" class="footer-logo" width="52" height="52">
+        <span class="footer-name">Lexi Chua</span>
+      </a>
+
+      <div class="footer-links-group">
+        <div class="footer-col">
+          <a href="index.html" class="footer-link">work</a>
+          <a href="play.html" class="footer-link">play</a>
+          <a href="about.html" class="footer-link">about</a>
+          <a href="https://drive.google.com/file/d/10KdwpGgJ-M44zvtkTwDR2CIg0nxfM8D4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-pill-footer footer-link">resume</a>
+        </div>
+
+        <div class="footer-col">
+          <a href="https://www.linkedin.com/in/lexi-chua" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+          <a href="https://github.com/lexichua" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+          <a href="mailto:lexichua@ucla.edu" class="footer-link">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
