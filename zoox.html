@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZOOX — Lexi Chua</title>
-  <meta name="description" content="Projects worked on for Zoox, the fully autonomous robotaxi company, by Lexi Chua.">
+  <meta name="description" content="Interface concepts designed for Zoox, the fully autonomous, all-electric robotaxi company, by Lexi Chua.">
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
@@ -52,12 +52,19 @@
   <div class="site-main-wrapper">
     <div class="page-container">
     
-    <!-- Left Navigation: Back to Projects Link -->
+    <!-- Left Navigation: Back to Projects Link & TOC -->
     <aside class="side-nav-wrapper" aria-label="Page Navigation">
       <nav class="side-toc">
         <a href="index.html" class="back-link">
           <span aria-hidden="true">&larr;</span> Back to Projects
         </a>
+        <a href="#overview" class="toc-link active">Overview</a>
+        <a href="#waitlist" class="toc-link">Rider Waitlist</a>
+        <a href="#initial-prototype" class="toc-link">Initial Prototype</a>
+        <a href="#refining-interface" class="toc-link">Refining Interface</a>
+        <a href="#final-iterations" class="toc-link">Final Iterations</a>
+        <a href="#designed-for-tablet" class="toc-link">Designed for Tablet</a>
+        <a href="#results-reflection" class="toc-link">Results &amp; Reflection</a>
       </nav>
     </aside>
 
@@ -72,7 +79,7 @@
           </a>
           <h1 class="hero-title zoox-title">ZOOX</h1>
           <p class="hero-subtitle zoox-subtitle">
-            Projects I worked on for Zoox, the fully autonomous, all-electric robotaxi company which is paving the future of transportation.
+            Interface concepts I designed for Zoox, the fully autonomous, all-electric robotaxi company which is paving the future of transportation.
           </p>
         </div>
         
@@ -97,18 +104,19 @@
             <h2 class="meta-column-header">Tools</h2>
             <div class="meta-column-content">
               <p>Figma</p>
-              <p>Google Antigravity</p>
+              <p>Google Antigravity IDE</p>
             </div>
           </div>
           <div class="meta-column">
             <h2 class="meta-column-header">Team</h2>
             <div class="meta-column-content">
-              <p>Zoox CRM team</p>
+              <p>Myself!</p>
             </div>
           </div>
           <div class="meta-column">
             <h2 class="meta-column-header">Timeline</h2>
             <div class="meta-column-content">
+              <p>2 Days</p>
               <p>Summer 2026</p>
             </div>
           </div>
@@ -116,17 +124,83 @@
       </header>
 
       <!-- OVERVIEW SECTION -->
-      <section class="zoox-overview-section reveal-chunk" id="overview">
+      <section class="zoox-case-section reveal-chunk" id="overview">
         <h2 class="zoox-overview-title">Overview</h2>
         <div class="zoox-overview-content">
-          <p>Over the summer I worked on two interfaces on the customer relationship management marketing team. I worked on both a public facing events interface and an internal form to move customers off the Zoox waiting list. The form I worked on has been adopted at all of the Zoox rider lounges around the country.</p>
+          <p>While visiting the Zoox Rider Lounge this summer, I had the opportunity to talk with the team about the complexities of their waitlist system. Inspired by that conversation and the real world constraints they mentioned, I proactively designed a two-screen onboarding flow to streamline how riders are transitioned off the waitlist.</p>
         </div>
       </section>
 
-      <!-- COMING SOON CAPTION -->
-      <div class="zoox-coming-soon reveal-chunk">
-        more coming soon!
-      </div>
+      <!-- THE ZOOX RIDER WAITLIST SECTION -->
+      <section class="zoox-case-section reveal-chunk" id="waitlist">
+        <h2 class="zoox-overview-title">The Zoox Rider Waitlist</h2>
+        <div class="zoox-overview-content">
+          <p>Moving from “on the waitlist” to “ready to ride” is a big moment for a new Zoox rider, and it should feel just as premium as the vehicle itself. For Rider Lounge staff, that means the process has to be both quick and accurate. This led me to ask: <span class="bold-highlight">how would I design an interface to give staff a fast, low-error way to move riders off the waitlist?</span></p>
+        </div>
+      </section>
+
+      <!-- INITIAL PROTOTYPE SECTION -->
+      <section class="zoox-case-section reveal-chunk" id="initial-prototype">
+        <div class="zoox-text-group">
+          <h2 class="zoox-overview-title">Initial Prototype</h2>
+          <div class="zoox-overview-content">
+            <p>I first designed a simple screen that takes in guest emails to pull them off of the waitlist.</p>
+          </div>
+        </div>
+        <div class="zoox-showcase-media">
+          <img src="assets/zoox_initial_prototype.png" alt="Initial Zoox Activate a Guest Ride prototype screen" loading="lazy">
+        </div>
+      </section>
+
+      <!-- REFINING MY INTERFACE SECTION -->
+      <section class="zoox-case-section reveal-chunk" id="refining-interface">
+        <div class="zoox-text-group">
+          <h2 class="zoox-overview-title">Refining my interface</h2>
+          <div class="zoox-overview-content">
+            <p>I then iterated on my first concept. I added a full-height image that puts the vehicle front and center while giving the form its own separate space. I added a persistent “Guest Email” label so the context never disappears while typing, larger fields for easier tapping, and a remove button on each entry so guests can be managed easily. I also replaced the generic “Submit” with “Activate Ride,” so the button says exactly what will happen.</p>
+          </div>
+        </div>
+        <div class="zoox-showcase-media">
+          <img src="assets/zoox_refining_interface.png" alt="Refined split-screen Zoox Activate a Guest Ride interface" loading="lazy">
+        </div>
+      </section>
+
+      <!-- FINAL ITERATIONS SECTION -->
+      <section class="zoox-case-section reveal-chunk" id="final-iterations">
+        <div class="zoox-text-group">
+          <h2 class="zoox-overview-title">Final Iterations</h2>
+          <div class="zoox-overview-content">
+            <p>In my final iteration, I shifted to a modal form. Placing the form in a single card over a full-bleed hero image keeps the vehicle present while focusing attention to the task. I moved the logo into the card to unify branding with the form, making it feel official, simplified the visual weight of the fields, and brought back “Add Another Guest” as a text link so the flow can easily accommodate more guests. The final result is a calm, focused experience.</p>
+          </div>
+        </div>
+        <div class="zoox-showcase-media">
+          <img src="assets/zoox_final_iteration.png" alt="Final modal Zoox Activate a Guest Ride interface over full-bleed vehicle hero" loading="lazy">
+        </div>
+      </section>
+
+      <!-- DESIGNED FOR TABLET SECTION -->
+      <section class="zoox-case-section reveal-chunk" id="designed-for-tablet">
+        <div class="zoox-text-group">
+          <h2 class="zoox-overview-title">Designed for Tablet</h2>
+          <div class="zoox-overview-content">
+            <p>Lounge staff greet guests face to face, so I designed this flow for a tablet they can carry with them. Unlike a desktop dashboard behind a desk, a handheld device keeps the interaction open and conversational. Guests can see exactly what is being entered and take part in the experience themselves, which builds trust through transparency.</p>
+          </div>
+        </div>
+        <div class="zoox-tablet-mockup">
+          <div class="zoox-tablet-screen">
+            <img src="assets/zoox_final_iteration.png" alt="Zoox Activate a Guest Ride interface displayed on an iPad Pro tablet" loading="lazy">
+          </div>
+          <img src="assets/zoox_ipad_frame.png" alt="" class="zoox-tablet-bezel" aria-hidden="true" loading="lazy">
+        </div>
+      </section>
+
+      <!-- RESULTS AND REFLECTION SECTION -->
+      <section class="zoox-case-section zoox-reflection-section reveal-chunk" id="results-reflection">
+        <h2 class="zoox-overview-title">Results and Reflection</h2>
+        <div class="zoox-overview-content">
+          <p>This project has been a fun challenge to practice designing within real-world constraints, and it’s changed how I approach my work. It made me think about how small decisions can impact how a customer feels about a product as a whole, not just whether it functions. That lens on trust and perception is something I’ll carry into every future project!</p>
+        </div>
+      </section>
 
     </main>
     </div>

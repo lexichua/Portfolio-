@@ -1763,10 +1763,18 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
   margin-top: 0;
 }
 
-.zoox-overview-section {
+.zoox-overview-section,
+.zoox-case-section {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
+}
+
+.zoox-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   width: 100%;
 }
 
@@ -1789,6 +1797,61 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
   margin: 0;
 }
 
+.zoox-showcase-media {
+  width: 100%;
+  margin-top: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.zoox-showcase-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* iPad Pro M4 13" Landscape Mockup */
+.zoox-tablet-mockup {
+  position: relative;
+  width: 100%;
+  max-width: 845px;
+  aspect-ratio: 3000 / 2300;
+  margin: 16px auto 0 auto;
+}
+
+.zoox-tablet-screen {
+  position: absolute;
+  top: 4.4%;
+  left: 3.6%;
+  right: 3.6%;
+  bottom: 4.4%;
+  border-radius: 28px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.zoox-tablet-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.zoox-tablet-bezel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.zoox-reflection-section {
+  padding-bottom: 60px;
+}
+
 .zoox-coming-soon {
   text-align: center;
   font-size: 16px;
@@ -1806,6 +1869,9 @@ a, button, [role="button"], .nav-pill, .nav-logo-box, .toc-link, .back-link, .mo
   .zoox-meta-grid {
     grid-template-columns: 1fr 1fr;
     gap: 28px;
+  }
+  .zoox-tablet-screen {
+    border-radius: 16px;
   }
 }
 
