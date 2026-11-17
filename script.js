@@ -298,6 +298,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Homepage Bio alignment is handled cleanly via CSS
 
+  // 7b. Zoox Custom Background Hover Thumbnail Preview (next to mouse)
+  const zooxPreviewTrigger = document.getElementById('zoox-bg-preview-trigger');
+  const zooxHoverPreview = document.getElementById('zoox-hover-preview');
+
+  if (zooxPreviewTrigger && zooxHoverPreview) {
+    const positionPreview = (e) => {
+      const previewW = zooxHoverPreview.offsetWidth || 320;
+      const previewH = zooxHoverPreview.offsetHeight || 214;
+      const offsetX = 18;
+      const offsetY = 18;
+
+      let x = e.clientX + offsetX;
+      let y = e.clientY - previewH / 2;
+
+      // Keep inside viewport bounds
+      if (x + previewW + 16 > window.innerWidth) {
+        x = e.clientX - previewW - offsetX;
+      }
+      if (y < 16) {
+        y = 16;
+      } else if (y + previewH + 16 > window.innerHeight) {
+        y = window.innerHeight - previewH - 16;
+      }
+
+      zooxHoverPreview.style.transform = `translate3d(${Math.round(x)}px, ${Math.round(y)}px, 0) scale(1)`;
+    };
+
+    zooxPreviewTrigger.addEventListener('mouseenter', (e) => {
+      positionPreview(e);
+      zooxHoverPreview.classList.add('is-visible');
+    });
+
+    zooxPreviewTrigger.addEventListener('mousemove', positionPreview, { passive: true });
+
+    zooxPreviewTrigger.addEventListener('mouseleave', () => {
+      zooxHoverPreview.classList.remove('is-visible');
+    });
+  }
+
 
   // 8. Play Page Category Tag Switcher
   const playTags = document.querySelectorAll('.play-tag');
